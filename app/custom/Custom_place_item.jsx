@@ -6,7 +6,7 @@ export default function Custom_place_item({place}) {
     <div className="overflow-hidden rounded-lg bg-base-100  shadow-sm">
       <img
           className='w-full'
-          src={`${api.baseUrl}uploads/image.jpg`}
+          src={`${api.baseUrl}uploads/${place.image}`}
           alt={place.nameEn} />
 
       <div className="flex flex-col justify-center items-center p-4">
