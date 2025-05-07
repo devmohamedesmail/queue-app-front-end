@@ -18,11 +18,11 @@ const PlaceProvider = ({ children }) => {
         try {
             const response = await axios.get(`${api.baseUrl}api/v1/places`);
             setPlaces(response.data.data);    
-            console.log(response.data.data);
+           
         } catch (err) {
             
             
-            console.log("Error"); 
+            console.log("Error",err); 
         }
     }
 

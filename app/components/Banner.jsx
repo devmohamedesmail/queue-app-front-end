@@ -5,7 +5,7 @@ export default function Banner() {
     return (
         <div className='container m-auto px-5' >
 
-            <img src="/images/banner.jpg" alt="" className='w-full h-60' />
+            <img src="/images/banner.jpg" alt="" className='w-full h-60 md:h-96' />
         </div>
 
     )
