@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { PlaceProvider } from "./context/PlaceContext";
 
 
 
@@ -17,9 +18,9 @@ export default function RootLayout({ children }) {
       <body
         className={` antialiased`}
       >
-      
+      <PlaceProvider>{children}</PlaceProvider>
           
-          {children}
+          
       
         
       </body>

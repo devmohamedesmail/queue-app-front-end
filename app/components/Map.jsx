@@ -1,6 +1,7 @@
 "use client";
-import React from 'react';
+import React, { useContext } from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { PlaceContext } from '../context/PlaceContext';
 
 
 const containerStyle = {
@@ -14,9 +15,9 @@ const defaultCenter = {
   lng: 55.296249,
 };
 
-const Map = ({places}) => {
+const Map = () => {
 
- 
+ const {places}=useContext(PlaceContext)
 
  // Use the first valid place as center, or default
  const validPlaces = places.filter(

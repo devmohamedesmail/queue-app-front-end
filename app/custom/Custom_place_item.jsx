@@ -1,15 +1,17 @@
 import React from 'react'
+import { api } from '../config/api'
 
-export default function Custom_place_item() {
+export default function Custom_place_item({place}) {
   return (
     <div className="overflow-hidden rounded-lg bg-base-100  shadow-sm">
       <img
-          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-          alt="Shoes" />
+          className='w-full'
+          src={`${api.baseUrl}uploads/image.jpg`}
+          alt={place.nameEn} />
 
       <div className="flex flex-col justify-center items-center p-4">
-        <h2 className="card-title text-center">Place Title</h2>
-        <p className='text-center'>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+        <h2 className="card-title text-center">{place.nameEn}</h2>
+        <p className='text-center'>{place.addressEn}</p>
        
       </div>
     </div>
