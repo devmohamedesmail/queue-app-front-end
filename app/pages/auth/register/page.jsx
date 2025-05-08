@@ -1,4 +1,7 @@
 'use client'
+import Footer from '@/app/components/Footer'
+import Mobile_Dock from '@/app/components/Mobile_Dock'
+import Navbar from '@/app/components/Navbar'
 import Custom_button from '@/app/custom/Custom_button'
 import Custom_input from '@/app/custom/Custom_input'
 import Link from 'next/link'
@@ -9,7 +12,9 @@ export default function page() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
   return (
-    <div className='container m-auto px-5'>
+  <div>
+    <Navbar />
+      <div className='container m-auto px-5'>
         <div className='flex flex-col justify-center h-screen  items-center   w-full md:w-96 mx-auto  '>
             <h1 className='text-3xl font-bold text-center'>Register</h1>
             <p className='text-center'>Welcome back! Please login to your account.</p>
@@ -23,5 +28,8 @@ export default function page() {
                 
         </div>
     </div>
+    <Footer />
+    <Mobile_Dock />
+  </div>
   )
 }
