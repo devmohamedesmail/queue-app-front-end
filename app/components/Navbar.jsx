@@ -1,12 +1,29 @@
+'use client'
 import Link from 'next/link';
-import React from 'react'
+import React, { useContext } from 'react'
 import { AiOutlineUser } from "react-icons/ai";
+import { PlaceContext } from '../context/PlaceContext';
+import { api } from '../config/api';
 
 function Navbar() {
+
+
+
+const {places, settings} = useContext(PlaceContext)
+
+
+
+
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="flex-1">
-                <Link href="/" className="btn btn-ghost text-xl">Queue App</Link>
+                <Link href="/" className="btn btn-ghost text-xl">
+                 
+                  <img className='w-12' src={`${api.baseUrl}uploads/${settings?.logo}`} alt={settings?.nameEn} />
+                  {settings?.nameEn}
+                </Link>
+                
             </div>
             <div className="flex gap-2">
                 <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-auto focus:outline-0" />

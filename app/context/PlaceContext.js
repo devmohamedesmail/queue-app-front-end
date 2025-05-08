@@ -9,9 +9,11 @@ const PlaceContext = createContext();
 
 const PlaceProvider = ({ children }) => {
     const [places,setPlaces] = useState([]);
+    const [settings,setSettings] = useState(null);
 
     useEffect(() => {
         fetchplaces(); 
+        fetch_settings();
     }, []); 
 
     const fetchplaces = async () => {
@@ -26,8 +28,18 @@ const PlaceProvider = ({ children }) => {
         }
     }
 
+    const fetch_settings = async () => {
+        try {
+            const response = await axios.get(`${api.baseUrl}api/v1/settings`);
+            setSettings(response.data.data); 
+          
+        } catch (err) { 
+            console.log("Error",err); 
+        }
+    }
+
     return (
-        <PlaceContext.Provider value={{ places }}>
+        <PlaceContext.Provider value={{ places , settings }}>
             {children}
         </PlaceContext.Provider>
     );
