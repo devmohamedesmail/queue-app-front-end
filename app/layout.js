@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PlaceProvider } from "./context/PlaceContext";
+import { AuthProvider } from "./context/AuthContext";
 
 
 
@@ -18,11 +19,15 @@ export default function RootLayout({ children }) {
       <body
         className={` antialiased`}
       >
-      <PlaceProvider>{children}</PlaceProvider>
-          
-          
-      
-        
+        <AuthProvider>
+          <PlaceProvider>
+            {children}
+          </PlaceProvider>
+        </AuthProvider>
+
+
+
+
       </body>
     </html>
   );

@@ -1,4 +1,6 @@
+import Link from 'next/link';
 import React from 'react'
+import { AiOutlineUser } from "react-icons/ai";
 
 function Navbar() {
     return (
@@ -10,11 +12,7 @@ function Navbar() {
                 <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-auto focus:outline-0" />
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="Tailwind CSS Navbar component"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                        </div>
+                         <AiOutlineUser size={20} />
                     </div>
                     <ul
                         tabIndex={0}
@@ -27,6 +25,7 @@ function Navbar() {
                         </li>
                         <li><a>Settings</a></li>
                         <li><a>Logout</a></li>
+                        <Link href="pages/auth/login/">login/register</Link>
                     </ul>
                 </div>
             </div>
