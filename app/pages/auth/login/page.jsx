@@ -15,7 +15,7 @@ export default function page() {
             <Navbar />
             <div className='container m-auto px-5'>
                 <div className='flex flex-col justify-center h-screen  items-center   w-full md:w-96 mx-auto  '>
-                    <h1 className='text-3xl font-bold text-center'>Login</h1>
+                    <h1 className='text-3xl font-bold text-center mb-3'>Login</h1>
                     <p className='text-center'>Welcome back! Please login to your account.</p>
 
                     <Custom_input type={"email"} value={email} onChange={(e) => setEmail(e.target.value)} label={"Email"} />

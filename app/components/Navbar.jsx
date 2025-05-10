@@ -42,7 +42,7 @@ const {places, settings} = useContext(PlaceContext)
                         </li>
                         <li><a>Settings</a></li>
                         <li><a>Logout</a></li>
-                        <Link href="pages/auth/login/">login/register</Link>
+                        <Link href="/pages/auth/login/">login/register</Link>
                     </ul>
                 </div>
             </div>

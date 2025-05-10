@@ -10,11 +10,11 @@ const AuthContext = createContext();
 
 
 const AuthProvider = ({ children }) => {
-    const [auth, setAuth] = useState(null); 
-   
+    const [auth, setAuth] = useState(null);
 
-     // Load auth from storage on app start
-     useEffect(() => {
+
+    // Load auth from storage on app start
+    useEffect(() => {
         const loadUser = async () => {
             try {
                 const userData = localStorage.getItem('user');
@@ -30,10 +30,10 @@ const AuthProvider = ({ children }) => {
 
 
 
-      // 🔐 Login function
-      const login = async (email, password) => {
+    // 🔐 Login function
+    const login = async (email, password) => {
         try {
-            
+
             const res = await axios.post('https://queue-app-express-js.onrender.com/api/v1/auth/login', {
                 email,
                 password,
@@ -44,16 +44,16 @@ const AuthProvider = ({ children }) => {
             localStorage.setItem('user', JSON.stringify(user));
             return { success: true };
         } catch (error) {
-            
+
             return { success: false, error: error.response?.data?.message || 'Login failed' };
         }
     };
 
     // 🧾 Register function
     const register = async (name, email, password) => {
-      
+        console.log('Registering user:', { name, email, password });
         try {
-            const res = await axios.post(`${api.url}api/v1/auth/register`, {
+            const res = await axios.post(`${api.baseUrl}api/v1/auth/register`, {
                 name,
                 email,
                 password,
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
             const user = res.data;
             setAuth(user);
             localStorage.setItem('user', JSON.stringify(user));
-            return res.status;
+            return { success: true, status: res.status , user: user };
         } catch (error) {
             console.log('Register error:', error.response?.data || error.message);
             return { success: false, error: error.response?.data?.message || 'Registration failed' };
@@ -74,7 +74,7 @@ const AuthProvider = ({ children }) => {
         try {
             setAuth(null);
             localStorage.removeItem('user');
-            
+
             return { success: true };
         } catch (error) {
             console.error('Logout error:', error.message);

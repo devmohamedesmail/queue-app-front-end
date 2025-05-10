@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PlaceProvider } from "./context/PlaceContext";
 import { AuthProvider } from "./context/AuthContext";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -22,6 +23,19 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <PlaceProvider>
             {children}
+            <ToastContainer 
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            
+            />
           </PlaceProvider>
         </AuthProvider>
       </body>
