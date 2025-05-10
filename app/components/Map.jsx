@@ -6,7 +6,7 @@ import { PlaceContext } from '../context/PlaceContext';
 
 const containerStyle = {
   width: '100%',
-  height: '400px',
+  height: '100%',
 };
 
 // Fallback center location (Dubai)
@@ -31,7 +31,8 @@ const Map = () => {
 
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyA74gOioKDIY9AlPHe3eyu4yTSvyAN8RMM">
+ <div className='h-[400px] md:h-[900px]'>
+     <LoadScript googleMapsApiKey="AIzaSyA74gOioKDIY9AlPHe3eyu4yTSvyAN8RMM">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
@@ -46,6 +47,7 @@ const Map = () => {
         ))}
       </GoogleMap>
     </LoadScript>
+ </div>
   );
 };
 
