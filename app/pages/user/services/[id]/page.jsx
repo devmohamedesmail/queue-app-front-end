@@ -6,6 +6,7 @@ import Navbar from '@/app/components/Navbar';
 import Custom_service_item from '@/app/custom/Custom_service_item';
 import Footer from '@/app/components/Footer';
 import Mobile_Dock from '@/app/components/Mobile_Dock';
+import Service_skeleton from '@/app/components/skeletons/Service_skeleton';
 export default function page({ params }) {
     const { id } = params;
     const [services, setServices] = useState([]);
@@ -31,19 +32,26 @@ export default function page({ params }) {
     return (
         <div>
             <Navbar />
-           <div className="container m-auto px-5 my-10">
-           {services && services.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {services.map((service, index) => (
-                        <Custom_service_item key={index} service={service} />
-                    ))}
-                </div>
-            ) : (
-                <p>No services found for this place.</p>
-            )}
-           </div>
-           <Footer />
-           <Mobile_Dock />
+            <div className="container m-auto px-5 my-10">
+                {services && services.length > 0 ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {services.map((service, index) => (
+                            <Custom_service_item key={index} service={service} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <Service_skeleton/>
+                        <Service_skeleton/>
+                        <Service_skeleton/>
+                        <Service_skeleton/>
+                        <Service_skeleton/>
+                        <Service_skeleton/>
+                    </div>
+                )}
+            </div>
+            <Footer />
+            <Mobile_Dock />
         </div>
     )
 }

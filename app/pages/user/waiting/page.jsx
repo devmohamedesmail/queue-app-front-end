@@ -5,6 +5,7 @@ import React from 'react'
 
 export default function page({ searchParams }) {
   console.log("searchParams", searchParams.placeId)
+  console.log("searchParams", searchParams.serviceId)
   return (
     <div>
       <Navbar />

@@ -8,7 +8,7 @@ const PlaceContext = createContext();
 
 
 const PlaceProvider = ({ children }) => {
-    const [places,setPlaces] = useState([]);
+    const [places,setPlaces] = useState(null);
     const [settings,setSettings] = useState(null);
 
     useEffect(() => {

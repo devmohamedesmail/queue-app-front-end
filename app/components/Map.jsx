@@ -17,15 +17,16 @@ const defaultCenter = {
 
 const Map = () => {
 
- const {places}=useContext(PlaceContext)
+  const { places } = useContext(PlaceContext)
 
- // Use the first valid place as center, or default
- const validPlaces = places.filter(
-  (p) => !isNaN(Number(p.lat)) && !isNaN(Number(p.lng))
-);
-const center = validPlaces.length > 0
-  ? { lat: Number(validPlaces[0].lat), lng: Number(validPlaces[0].lng) }
-  : defaultCenter;
+  // Use the first valid place as center, or default
+  const validPlaces = places?.filter(
+    (p) => !isNaN(Number(p.lat)) && !isNaN(Number(p.lng))
+  ) || [];
+  
+  const center = validPlaces.length > 0
+    ? { lat: Number(validPlaces[0].lat), lng: Number(validPlaces[0].lng) }
+    : defaultCenter;;
 
 
 
