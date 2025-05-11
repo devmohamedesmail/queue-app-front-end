@@ -16,6 +16,7 @@ export default function Home() {
       <h1>{t('welcome')}</h1>
       <button onClick={() => i18n.changeLanguage('en')}>English</button>
       <button onClick={() => i18n.changeLanguage('ar')}>العربية</button>
+      <Link href="/pages/admin">About</Link>
      <Navbar />
      <Map />
      <Banner />
