@@ -1,8 +1,11 @@
+
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PlaceProvider } from "./context/PlaceContext";
 import { AuthProvider } from "./context/AuthContext";
 import { ToastContainer } from "react-toastify";
+import ClientWrapper from "./components/ClientWrapper";
 
 
 
@@ -22,6 +25,7 @@ export default function RootLayout({ children }) {
       >
         <AuthProvider>
           <PlaceProvider>
+            <ClientWrapper>
             {children}
             <ToastContainer 
               position="top-right"
@@ -36,6 +40,7 @@ export default function RootLayout({ children }) {
               theme="light"
             
             />
+            </ClientWrapper>
           </PlaceProvider>
         </AuthProvider>
       </body>
