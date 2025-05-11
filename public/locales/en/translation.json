@@ -79,5 +79,8 @@
 	"content-en": " English Content ",
 	"content-ar": " Arabic Content ",
 	"show-pages": " Show All Pages ",
-	"edit-sevice": "edit-sevice"
+	"edit-sevice": "edit-sevice",
+	"place-information": "Place Information",
+	"place-location": "Place Location",
+	"place-settings": "Place Settings"
 }

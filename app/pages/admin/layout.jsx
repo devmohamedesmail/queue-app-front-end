@@ -14,7 +14,7 @@ export default function Layout({ children }) {
       
       <div className="flex flex-col flex-1 overflow-hidden">
         <Admin_header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-        <div className="flex-1 overflow-auto bg-gray-100 p-4">
+        <div className="flex-1 overflow-auto  p-4">
           {children}
         </div>
       </div>
