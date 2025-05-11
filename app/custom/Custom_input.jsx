@@ -2,13 +2,14 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function Custom_input({ label, type, placeholder, value, onChange,error }) {
+export default function Custom_input({ label, type, placeholder, value, onChange,error,name }) {
   const {t,i18n}=useTranslation();
   return (
     <div className='mb-5 w-full'>
         <label className={`text-xs mb-1  w-full block ${i18n.language === 'en' ? 'text-left' : 'text-right'}`}>{label}</label>
         <input 
            type={type} 
+           name={name}
            placeholder={placeholder} 
            value={value} 
            onChange={onChange} 

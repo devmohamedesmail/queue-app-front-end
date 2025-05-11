@@ -85,5 +85,8 @@
 	"place-settings": " إعدادات المكان",
 	"required": " مطلوب ",
 	"add-new-place": "إضافة مكان جديد",
-	"show-places": " عرض الأماكن "
+	"show-places": " عرض الأماكن ",
+	"service-title-en": " عنوان الخدمة باللغة الإنجليزية",
+	"service-title-ar": " عنوان الخدمة باللغة العربية",
+	"place-services": " خدمات المكان"
 }

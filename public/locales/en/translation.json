@@ -85,5 +85,9 @@
 	"place-settings": "Place Settings",
 	"required": "Required",
 	"create-new-place": "Create New Place",
-	"show-places": "Show Places"
+	"show-places": "Show Places",
+	"service-title-en": "Service Title in English",
+	"service-title-ar": "Service Title in Arabic",
+	"place-services": "Place Services"
+	
 }

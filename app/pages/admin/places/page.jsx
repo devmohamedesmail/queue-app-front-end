@@ -9,13 +9,14 @@ import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Link from 'next/link';
-
+import { FaPlus } from "react-icons/fa6";
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function page() {
   const { t } = useTranslation();
   const [image, setImage] = useState('');
   const [daysOfWork, setDaysOfWork] = useState([]);
-
+  const [services, setServices] = useState([]);
 
 
 
@@ -44,6 +45,9 @@ export default function page() {
       timeClosed: '',
       moveTurn: false,
       estimateTime: '',
+      serviceTitleEn: '',
+      serviceTitleAr: '',
+      serviceEstimatedTime: '',
     },
     validationSchema: Yup.object({
       nameEn: Yup.string().required(t('required')),
@@ -64,9 +68,17 @@ export default function page() {
           formData.append(key, value);
         });
         formData.append('daysOfWork', JSON.stringify(daysOfWork));
+        formData.append('services', JSON.stringify(services));
         if (image) {
           formData.append('image', image);
         }
+
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+          formDataObject[key] = value;
+        });
+        console.log('Form Data:', formDataObject);
+
 
         const response = await axios.post(`${api.baseUrl}api/v1/places/add/new/place`, formData, {
           headers: {
@@ -85,9 +97,30 @@ export default function page() {
     },
   });
 
+  const handleAddService = () => {
+    const { serviceTitleEn, serviceTitleAr, serviceEstimatedTime } = formik.values;
 
 
+    if (!serviceTitleEn || !serviceTitleAr || !serviceEstimatedTime) return;
 
+    setServices((prev) => [
+      ...prev,
+      {
+        titleEn: serviceTitleEn,
+        titleAr: serviceTitleAr,
+        estimatedTime: serviceEstimatedTime,
+      },
+    ]);
+
+    // Clear service fields
+    formik.setFieldValue('serviceTitleEn', '');
+    formik.setFieldValue('serviceTitleAr', '');
+    formik.setFieldValue('serviceEstimatedTime', '');
+  };
+
+  const handleRemoveService = (index) => {
+    setServices((prev) => prev.filter((_, i) => i !== index));
+  };
 
   return (
     <div>
@@ -227,8 +260,54 @@ export default function page() {
               onChange={formik.handleChange}
               error={formik.touched.estimateTime && formik.errors.estimateTime}
             />
+
+          </div>
+
+
+
+          {/* tab 4 - services */}
+          <input type="radio" name="my_tabs_2" className="tab flex-1" aria-label={t('place-services')} />
+          <div className="tab-content border-base-300 bg-base-100 p-10">
+
+            <div className='flex flex-col md:flex-row gap-2 mb-5'>
+              <Custom_input label={t('service-title-en')} name="serviceTitleEn" value={formik.values.serviceTitleEn} onChange={formik.handleChange} />
+              <Custom_input label={t('service-title-ar')} name="serviceTitleAr" value={formik.values.serviceTitleAr} onChange={formik.handleChange} />
+              <Custom_input label={t('estimated-time')} name="serviceEstimatedTime" value={formik.values.serviceEstimatedTime} onChange={formik.handleChange} />
+            </div>
+
+            <button type="button" onClick={handleAddService} className="btn btn-outline btn-neutral mb-5">
+               <FaPlus />
+            </button>
+
+
+            <ul className="mb-5 space-y-2">
+              {services.map((service, index) => (
+                <li key={index} className="p-2 bg-gray-100 rounded shadow flex justify-between items-center">
+                  <div className="flex-1 flex flex-col">
+                    <strong>{t('title-en')}: {service.titleEn}</strong>  
+                    <strong>{t('title-ar')}: {service.titleAr} </strong>  
+                    <strong>{t('estimated-time')}: {service.estimatedTime} </strong> 
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveService(index)}
+                    className="btn btn-sm btn-error"
+                  >
+                    <FaTrashAlt />
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+
             <Custom_button title={t('save')} type="submit" />
           </div>
+
+
+
+
+
+
         </div>
       </form>
 
