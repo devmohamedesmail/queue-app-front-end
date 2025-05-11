@@ -82,5 +82,8 @@
 	"edit-sevice": "edit-sevice",
 	"place-information": "Place Information",
 	"place-location": "Place Location",
-	"place-settings": "Place Settings"
+	"place-settings": "Place Settings",
+	"required": "Required",
+	"create-new-place": "Create New Place",
+	"show-places": "Show Places"
 }

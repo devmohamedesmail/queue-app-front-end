@@ -82,5 +82,8 @@
 	"edit-sevice": " تعديل الخدمة",
 	"place-information": " معلومات المكان",
 	"place-location": " موقع المكان",
-	"place-settings": " إعدادات المكان"
+	"place-settings": " إعدادات المكان",
+	"required": " مطلوب ",
+	"add-new-place": "إضافة مكان جديد",
+	"show-places": " عرض الأماكن "
 }
