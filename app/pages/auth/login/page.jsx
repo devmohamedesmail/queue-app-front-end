@@ -6,11 +6,10 @@ import { AuthContext } from '@/app/context/AuthContext'
 import Custom_button from '@/app/custom/Custom_button'
 import Custom_input from '@/app/custom/Custom_input'
 import Custom_spinner from '@/app/custom/Custom_spinner'
-import Link from 'next/link'
 import React, { useContext, useState } from 'react'
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next'
-import { Formik, Field, Form, ErrorMessage, useFormik } from 'formik'
+import {  useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
 import { redirect } from 'next/navigation'
@@ -23,7 +22,7 @@ export default function page() {
   const { auth, setAuth, login, register, logout } = useContext(AuthContext)
   const [activeTab, setActiveTab] = useState('login')
   const { t, i18n } = useTranslation();
-const router = useRouter()
+  const router = useRouter()
 
 
 
@@ -41,7 +40,7 @@ const router = useRouter()
       try {
         setLoading(true)
         const res = await login(values.email, values.password)
-        console.log(res.user.user.user.role);
+      
         if (res.status === 200) {
           toast.success(t('success'));
           setEmail('')
@@ -50,10 +49,10 @@ const router = useRouter()
 
         const role = res.user.user.user.role
         if (role === 'admin') {
-         
+
           router.push('/pages/admin')
         } else if (role === 'subscriber') {
-          
+
           router.push('/pages/subscriber')
         } else {
           redirect('/pages/user')
