@@ -7,16 +7,21 @@ import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 import Link from "next/link";
 import { useTranslation } from 'react-i18next';
+import Loader from "./components/Loader";
+import { useContext } from "react";
+import { PlaceContext } from "./context/PlaceContext";
 
 
 export default function Home() {
   const { t, i18n } = useTranslation();
+  const {settings} = useContext(PlaceContext)
+  console.log(settings)
   return (
-    <div >
-      <h1>{t('welcome')}</h1>
-      <button onClick={() => i18n.changeLanguage('en')}>English</button>
-      <button onClick={() => i18n.changeLanguage('ar')}>العربية</button>
-      <Link href="/pages/admin">About</Link>
+   <>
+   
+   {settings? (
+     <div >
+     
      <Navbar />
      <Map />
      <Banner />
@@ -25,5 +30,13 @@ export default function Home() {
      <Footer />
     
     </div>
+   ):(
+    <Loader />
+   )}
+   
+   
+   
+   
+   </>
   );
 }

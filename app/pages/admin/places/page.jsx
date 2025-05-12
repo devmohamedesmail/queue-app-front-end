@@ -11,13 +11,15 @@ import * as Yup from 'yup';
 import Link from 'next/link';
 import { FaPlus } from "react-icons/fa6";
 import { FaTrashAlt } from "react-icons/fa";
+import { set } from 'lodash';
+import { toast } from 'react-toastify';
 
 export default function page() {
   const { t } = useTranslation();
   const [image, setImage] = useState('');
   const [daysOfWork, setDaysOfWork] = useState([]);
   const [services, setServices] = useState([]);
-
+  const [loading, setLoading] = useState(false);
 
 
 
@@ -63,6 +65,7 @@ export default function page() {
     }),
     onSubmit: async (values) => {
       try {
+        setLoading(true)
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
           formData.append(key, value);
@@ -85,14 +88,19 @@ export default function page() {
             'Content-Type': 'multipart/form-data',
           },
         });
-
+        setLoading(false)
         if (response.status === 200) {
           console.log('Place added successfully', response.data);
+          toast.success(t('success'));
         } else {
           console.error('Error adding place');
+          toast.error(t('error'));
         }
       } catch (error) {
-        console.error(error);
+        setLoading(false)
+        toast.error(t('error'));
+      }finally{
+        setLoading(false)
       }
     },
   });
@@ -300,7 +308,8 @@ export default function page() {
             </ul>
 
 
-            <Custom_button title={t('save')} type="submit" />
+           
+            {loading ? <div className="loading loading-spinner loading-lg"></div> : <Custom_button title={t('save')} type="submit" /> }
           </div>
 
 
