@@ -88,5 +88,11 @@
 	"show-places": " عرض الأماكن ",
 	"service-title-en": " عنوان الخدمة باللغة الإنجليزية",
 	"service-title-ar": " عنوان الخدمة باللغة العربية",
-	"place-services": " خدمات المكان"
+	"place-services": " خدمات المكان",
+	"home": " الرئيسية ",
+	"account": " الحساب ",
+	"invalid-email": " البريد الإلكتروني غير صالح",
+	"email-required": " البريد الإلكتروني مطلوب",
+	"password-min": " كلمة المرور يجب أن تكون 6 أحرف على الأقل",
+	"password-required": " كلمة المرور مطلوبة"
 }

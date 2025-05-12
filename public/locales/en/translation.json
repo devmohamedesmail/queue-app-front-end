@@ -88,6 +88,12 @@
 	"show-places": "Show Places",
 	"service-title-en": "Service Title in English",
 	"service-title-ar": "Service Title in Arabic",
-	"place-services": "Place Services"
+	"place-services": "Place Services",
+	"home": "Home",
+	"account": "Account",
+	"invalid-email": "Invalid email",
+	"email-required": "Email is required",
+	"password-min": "Password must be at least 6 characters",
+	"password-required": "Password is required"
 	
 }
