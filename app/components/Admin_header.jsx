@@ -1,6 +1,16 @@
-import React from 'react'
-
+'use client'
+import React, { useContext } from 'react'
+import { PlaceContext } from '../context/PlaceContext'
 function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
+
+
+
+ const { settings } = useContext(PlaceContext)
+
+
+
+
+
     return (
         <div className="navbar bg-base-100 shadow-sm px-4 flex justify-between items-center">
             <div className="flex items-center gap-2">
@@ -10,7 +20,9 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
                 >
                     <span className="text-xl">☰</span>
                 </button>
-                <span className="text-xl font-bold">daisyUI</span>
+                <span className="text-xl font-bold">
+                    {settings?.nameEn}
+                </span>
             </div>
 
             <div className="flex gap-2 items-center">
