@@ -1,3 +1,4 @@
+'use client'
 import Footer from '@/app/components/Footer'
 import Mobile_Dock from '@/app/components/Mobile_Dock'
 import Navbar from '@/app/components/Navbar'
