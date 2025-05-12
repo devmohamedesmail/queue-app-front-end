@@ -50,13 +50,13 @@ export default function page() {
         const role = res.user.user.user.role
         if (role === 'admin') {
 
-          router.push('/pages/admin')
+          // router.push('/pages/admin')
         } else if (role === 'subscriber') {
 
-          router.push('/pages/subscriber')
+          // router.push('/pages/subscriber')
         } else {
-          redirect('/pages/user')
-          router.push('/pages/user')
+      
+          // router.push('/pages/user')
         }
         setLoading(false)
       } catch (err) {
