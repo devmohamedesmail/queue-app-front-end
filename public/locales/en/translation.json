@@ -102,7 +102,9 @@
 	"your-queue":" Your Queue ",
 	"now-serving":" Now Serving ",
 	"your-queues":" Your Queues ",
-	"all-queues":" All Queues "
+	"all-queues":" All Queues ",
+	"added-success":"Added Successfully",
+	"add-new-place":"Add New Place"
 	
 	
 }

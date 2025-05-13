@@ -1,14 +1,32 @@
 'use client'
 import React, { useContext } from 'react'
 import { PlaceContext } from '../context/PlaceContext'
+import { AuthContext } from '../context/AuthContext'
+import { useTranslation } from 'react-i18next'
+import { CiUser } from "react-icons/ci";
+import { AiOutlineUser } from "react-icons/ai";
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
 
 
 
- const { settings } = useContext(PlaceContext)
-
-
-
+    const { settings } = useContext(PlaceContext)
+    const { auth, setAuth, login, register, logout } = useContext(AuthContext)
+    const {t}=useTranslation()
+    const router = useRouter()
+    const handle_logout = async () => {
+        try {
+            await logout();
+            setAuth(null);
+            localStorage.removeItem('user');
+            router.push('/')
+            console.log("logout")
+            toast.success(t('logout-success'));
+        } catch (error) {
+            console.log("Logout error:", error);
+        }
+    }
 
 
     return (
@@ -32,18 +50,9 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
                     className="input input-bordered w-24 md:w-auto"
                 />
                 <div className="dropdown dropdown-end">
-                    <div
-                        tabIndex={0}
-                        role="button"
-                        className="btn btn-ghost btn-circle avatar"
-                    >
-                        <div className="w-10 rounded-full">
-                            <img
-                                alt="User Avatar"
-                                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                            />
-                        </div>
-                    </div>
+                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                            <AiOutlineUser size={20} />
+                                        </div>
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-50"
@@ -54,7 +63,7 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
                             </a>
                         </li>
                         <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
+                        <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
                     </ul>
                 </div>
             </div>

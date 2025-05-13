@@ -9,6 +9,7 @@ import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 import { CiUser } from "react-icons/ci";
+import i18n from '@/i18n';
 function Navbar() {
 
     const { places, settings } = useContext(PlaceContext)
@@ -31,6 +32,13 @@ function Navbar() {
     }
 
 
+
+
+    const handle_toggle_lang = () => {
+        const newLocale = localStorage.getItem('i18nextLng') === 'en' ? 'ar' : 'en';
+        localStorage.setItem('i18nextLng', newLocale);
+        window.location.reload();
+    }
 
 
 
@@ -59,14 +67,10 @@ function Navbar() {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>{auth?.user.user.name}</a></li>
+                        <li> <Link href="/pages/user/profile">{t('account')}</Link></li>
+                        <li><a>{auth?.user.user.email}</a></li>
                         <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
+                        <li className="mt-10"><a><button  onClick={() => handle_toggle_lang()}>{i18n.language === 'en' ? 'العربية' : 'English'}</button></a></li>
 
                     </ul>
                 </div>

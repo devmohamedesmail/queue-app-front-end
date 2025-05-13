@@ -2,8 +2,8 @@ import React from 'react'
 
 function page() {
   return (
-    <div>
-      <h1>Queues Section</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2">
+      <div></div>
     </div>
   )
 }

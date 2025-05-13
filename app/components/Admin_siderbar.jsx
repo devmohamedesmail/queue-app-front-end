@@ -1,21 +1,11 @@
 import React, { useContext } from 'react'
 import { PlaceContext } from '../context/PlaceContext'
 import { api } from '@/app/config/api';
-import Link from 'next/link';
-import { IoChevronForwardSharp } from "react-icons/io5";
 import Custom_sidebar_item from '../custom/Custom_sidebar_item';
 import { useTranslation } from 'react-i18next';
+import { CiHome } from "react-icons/ci";
+import { MdOutlinePlace } from "react-icons/md";
 
-/*************  ✨ Windsurf Command ⭐  *************/
-/**
- * The admin sidebar component.
- *
- * @param {boolean} isSidebarOpen - Is the sidebar open or not?
- * @param {function} setIsSidebarOpen - Function to set the sidebar open state.
- *
- * @returns {JSX.Element} The admin sidebar component.
- */
-/*******  7cd1ccaa-3aac-4a05-9fbd-bba3508b15a7  *******/
 function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
   const { t } = useTranslation();
   const { settings } = useContext(PlaceContext)
@@ -34,8 +24,8 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
 
         <ul>
 
-          <Custom_sidebar_item link="/pages/admin/"  title={t('home')} />
-          <Custom_sidebar_item link="/pages/admin/places"  title={t('places')} />
+          <Custom_sidebar_item icon={<CiHome />} link="/pages/admin/"  title={t('home')} />
+          <Custom_sidebar_item icon={<MdOutlinePlace />} link="/pages/admin/places"  title={t('places')} />
 
 
 

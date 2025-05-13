@@ -102,6 +102,8 @@
 	"your-queue":" دورك ",
 	"now-serving":" الان يخدم ",
 	"your-queues":"  طوابيرك ",
-	"all-queues":" جميع الادوار "
+	"all-queues":" جميع الادوار ",
+	"added-success":"تم الاضافة بنجاح"
+	
 	
 }

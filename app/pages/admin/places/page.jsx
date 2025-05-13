@@ -11,7 +11,7 @@ import * as Yup from 'yup';
 import Link from 'next/link';
 import { FaPlus } from "react-icons/fa6";
 import { FaTrashAlt } from "react-icons/fa";
-import { set } from 'lodash';
+
 import { toast } from 'react-toastify';
 
 export default function page() {
@@ -91,7 +91,7 @@ export default function page() {
         setLoading(false)
         if (response.status === 200) {
           console.log('Place added successfully', response.data);
-          toast.success(t('success'));
+          toast.success(t('added-success'));
         } else {
           console.error('Error adding place');
           toast.error(t('error'));
