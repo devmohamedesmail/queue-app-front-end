@@ -4,7 +4,7 @@ import React from 'react'
 function page() {
   return (
     <div>
-      <h1>conent</h1>
+      <h1>Home Page</h1>
 
       <Link href="/pages/subscriber/queues">queues</Link>
     </div>

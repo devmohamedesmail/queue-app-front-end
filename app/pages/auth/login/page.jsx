@@ -52,8 +52,7 @@ export default function page() {
 
           router.push('/pages/admin')
         } else if (role === 'subscriber') {
-
-          // router.push('/pages/subscriber')
+          router.push('/pages/subscriber')
         } else {
       
           // router.push('/pages/user')
