@@ -4,12 +4,33 @@ import React, { useContext } from 'react'
 import { AiOutlineUser } from "react-icons/ai";
 import { PlaceContext } from '../context/PlaceContext';
 import { api } from '../config/api';
-
+import { AuthContext } from '../context/AuthContext';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
+import { CiUser } from "react-icons/ci";
 function Navbar() {
 
+    const { places, settings } = useContext(PlaceContext)
+    const { auth, setAuth, login, register, logout } = useContext(AuthContext)
+    const { t } = useTranslation()
+    const router = useRouter()
 
 
-const {places, settings} = useContext(PlaceContext)
+    const handle_logout = async () => {
+        try {
+            await logout();
+            setAuth(null);
+            localStorage.removeItem('user');
+            router.push('/')
+            console.log("logout")
+            toast.success(t('logout-success'));
+        } catch (error) {
+            console.log("Logout error:", error);
+        }
+    }
+
+
 
 
 
@@ -19,17 +40,21 @@ const {places, settings} = useContext(PlaceContext)
         <div className="navbar bg-base-100 shadow-sm">
             <div className="flex-1">
                 <Link href="/" className="btn btn-ghost text-xl">
-                 
-                  <img className='w-12' src={`${api.baseUrl}uploads/${settings?.logo}`} alt={settings?.nameEn} />
-                  {settings?.nameEn}
+
+                    <img className='w-12' src={`${api.baseUrl}uploads/${settings?.logo}`} alt={settings?.nameEn} />
+                    {settings?.nameEn}
                 </Link>
-                
+
             </div>
-            <div className="flex gap-2">
+
+
+
+
+            {auth ? (<div className="flex gap-2">
                 <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-auto focus:outline-0" />
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                         <AiOutlineUser size={20} />
+                        <AiOutlineUser size={20} />
                     </div>
                     <ul
                         tabIndex={0}
@@ -40,12 +65,24 @@ const {places, settings} = useContext(PlaceContext)
                                 <span className="badge">New</span>
                             </a>
                         </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                        <Link href="/pages/auth/login/">login/register</Link>
+                        <li><a>{auth?.user.user.name}</a></li>
+                        <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
+
                     </ul>
                 </div>
-            </div>
+            </div>) : (
+                <>
+                    <Link href="/pages/auth/login"><CiUser  size={20} /></Link>
+                </>)}
+
+
+
+
+
+
+
+
+
         </div>
     )
 }

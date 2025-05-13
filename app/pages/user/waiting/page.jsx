@@ -2,11 +2,62 @@
 import Footer from '@/app/components/Footer'
 import Mobile_Dock from '@/app/components/Mobile_Dock'
 import Navbar from '@/app/components/Navbar'
-import React from 'react'
+import { api } from '@/app/config/api'
+import { AuthContext } from '@/app/context/AuthContext'
+import Custom_spinner from '@/app/custom/Custom_spinner'
+import axios from 'axios'
+import { useRouter } from 'next/navigation'
+import React, { useContext , useState } from 'react'
+import {toast} from 'react-toastify'
 
 export default function page({ searchParams }) {
-  console.log("searchParams", searchParams.placeId)
-  console.log("searchParams", searchParams.serviceId)
+  // console.log("searchParams", searchParams.placeId)
+  // console.log("searchParams", searchParams.serviceId)
+  const {auth}=useContext(AuthContext)
+  const router = useRouter();
+  const [loading, setLoading] = useState(false)
+
+
+
+
+  const handle_book_now = async() =>{
+    
+    try {
+      if (auth) {
+        try {
+          setLoading(true)
+          const res = await axios.post(`${api.baseUrl}api/v1/queues/book/new/queue/${auth.user.user._id}/${searchParams.placeId}/${searchParams.serviceId}`)
+          console.log("res", res)
+          if (res.status === 201) {
+            setLoading(false)
+            toast.success(t('queue-booked-success'))
+            
+          }
+          setLoading(false)
+        } catch (error) {
+          console.log(error)
+          setLoading(false)
+        }finally{
+          setLoading(false)
+        }
+       
+      } else {
+        router.push('/pages/auth/login')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+    
+  }
+
+
+
+
+
+
+
+
+
   return (
     <div>
       <Navbar />
@@ -23,7 +74,8 @@ export default function page({ searchParams }) {
             <p>1000</p>
           </div>
           <div className='flex justify-center items-center my-10'>
-            <button className='btn btn-neutral w-full'>Book now</button>
+            
+            {loading ? <Custom_spinner /> : <button onClick={() => handle_book_now()} className='btn btn-neutral w-full'>Book now</button> }
           </div>
         </div>
       </div>

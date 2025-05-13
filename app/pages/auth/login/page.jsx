@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next'
 import {  useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useRouter } from 'next/navigation'
-import { redirect } from 'next/navigation'
+
 
 export default function page() {
   const [name, setName] = useState('')
@@ -42,7 +42,7 @@ export default function page() {
         const res = await login(values.email, values.password)
       
         if (res.status === 200) {
-          toast.success(t('success'));
+          toast.success(t('login-success'));
           setEmail('')
           setPassword('')
         }

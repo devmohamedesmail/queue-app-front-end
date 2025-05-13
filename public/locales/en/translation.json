@@ -94,6 +94,11 @@
 	"invalid-email": "Invalid email",
 	"email-required": "Email is required",
 	"password-min": "Password must be at least 6 characters",
-	"password-required": "Password is required"
+	"password-required": "Password is required",
+	"logout-success": "Logout Successfully",
+	"login-failed": "Login Failed",
+	"queue-booked-success":"Queue Booked Successfully",
+	"book-turn":"Book Turn"
+	
 	
 }

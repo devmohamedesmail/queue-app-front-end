@@ -94,5 +94,9 @@
 	"invalid-email": " البريد الإلكتروني غير صالح",
 	"email-required": " البريد الإلكتروني مطلوب",
 	"password-min": " كلمة المرور يجب أن تكون 6 أحرف على الأقل",
-	"password-required": " كلمة المرور مطلوبة"
+	"password-required": " كلمة المرور مطلوبة",
+	"logout-success": " تم تسجيل الخروج بنجاح",
+	"login-failed": " فشل تسجيل الدخول",
+	"queue-booked-success": "تم حجز الدور بنجاح",
+	"book-turn":" احجز دورك"
 }
