@@ -98,7 +98,9 @@
 	"logout-success": "Logout Successfully",
 	"login-failed": "Login Failed",
 	"queue-booked-success":"Queue Booked Successfully",
-	"book-turn":"Book Turn"
+	"book-turn":"Book Turn",
+	"your-queue":" Your Queue ",
+	"now-serving":" Now Serving "
 	
 	
 }

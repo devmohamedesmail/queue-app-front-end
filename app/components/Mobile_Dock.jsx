@@ -16,7 +16,7 @@ function Mobile_Dock() {
                 <span className="dock-label">{t('home')}</span>
             </Link>
 
-            <Link href="/pages/subscriber/queues" className="dock-active">
+            <Link href={`${auth ? '/pages/user/queues' : '/pages/auth/login'}`} className="dock-active">
                <FaPeopleGroup />
                 <span className="dock-label">{t('my-queues')}</span>
             </Link>

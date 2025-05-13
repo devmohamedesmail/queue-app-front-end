@@ -98,5 +98,8 @@
 	"logout-success": " تم تسجيل الخروج بنجاح",
 	"login-failed": " فشل تسجيل الدخول",
 	"queue-booked-success": "تم حجز الدور بنجاح",
-	"book-turn":" احجز دورك"
+	"book-turn":" احجز دورك",
+	"your-queue":" دورك ",
+	"now-serving":" الان يخدم "
+	
 }

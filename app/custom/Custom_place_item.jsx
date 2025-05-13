@@ -33,9 +33,8 @@ export default function Custom_place_item({ place }) {
       </div>
 
       <div className='w-full mt-3 flex justify-between items-center mb-2 px-1'>
-        <Link className='h-10 px-10 mx-1 border-black border flex justify-center items-center font-bold text-xs' href={`/pages/user/services/${place._id}`} >{t('book-turn')}</Link>
-
-        <Link className='w-10 bg-black h-10 flex justify-center items-center' href={place.location} > <FaLocationArrow color='white' /> </Link>
+        <Link className='h-10 mx-1 rounded w-full bg-black border flex justify-center items-center font-bold text-xs text-white' href={`/pages/user/services/${place._id}`} >{t('book-turn')}</Link>
+        <Link className=' bg-green-600 h-10 w-10 rounded flex justify-center items-center' href={place.locationlink} > <FaLocationArrow color='white' /> </Link>
       </div>
     </div>
   )
