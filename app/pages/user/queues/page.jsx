@@ -29,7 +29,7 @@ function page() {
 
 
 
- useEffect(() => {
+    useEffect(() => {
         const userId = auth?.user?.user?._id;
         if (userId) {
             fetch_queues(userId);
@@ -43,8 +43,16 @@ function page() {
 
             <div className="container m-auto px-5 my-10">
 
-                <h1 className='text-center my-10'>{t('queues')}</h1>
+                <h1 className='text-center my-10 font-bold text-xl'>{t('queues')}</h1>
 
+                {queues && queues.length > 0 ? (
+                    <div className='flex flex-col justify-center items-center my-10'>
+                      <h3 className='font-bold text-md'>{t('your-queues')}</h3>
+                      <h3>{queues.length}</h3>
+                    </div>) : (
+                        
+                        <>
+                        </>)}
 
 
                 {queues ? (<>
@@ -89,19 +97,19 @@ function page() {
 
 
 
-                </>) : ( <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                            <Queue_skeleton />
-                        </div>)}
+                </>) : (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                    <Queue_skeleton />
+                </div>)}
 
 
 

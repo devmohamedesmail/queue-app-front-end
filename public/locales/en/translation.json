@@ -100,7 +100,9 @@
 	"queue-booked-success":"Queue Booked Successfully",
 	"book-turn":"Book Turn",
 	"your-queue":" Your Queue ",
-	"now-serving":" Now Serving "
+	"now-serving":" Now Serving ",
+	"your-queues":" Your Queues ",
+	"all-queues":" All Queues "
 	
 	
 }
