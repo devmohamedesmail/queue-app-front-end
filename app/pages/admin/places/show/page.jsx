@@ -57,11 +57,7 @@ export default function page() {
       name: t('actions'),
       cell: row => (
         <div className="flex space-x-2">
-
-          <button onClick={() => {
-            setSelectedPlace(row)
-            document.getElementById('my_modal_4').showModal()
-          }} className="btn btn-success"> <MdEdit color='white' /> </button>
+          <Link href={`/pages/admin/places/show/edit/${row._id}`} className="btn btn-success"> <MdEdit color='white' /> </Link>
           <button className="btn btn-error bg-red-600" onClick={() => console.log(row)}><FaTrash color='white' /></button>
         </div>
       ),

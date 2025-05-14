@@ -134,11 +134,9 @@ export default function page() {
     <div>
       <Custom_page_title title={t('create-new-place')} />
 
-
       <div className='flex justify-end items-center mb-5'>
         <Link href="/pages/admin/places/show" className='btn btn-primary'>{t('show-places')}</Link>
       </div>
-
 
 
       <form onSubmit={formik.handleSubmit}>
@@ -319,12 +317,6 @@ export default function page() {
 
         </div>
       </form>
-
-
-
-
-
-
     </div>
   )
 }
