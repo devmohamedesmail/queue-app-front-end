@@ -55,7 +55,7 @@ export default function page() {
           router.push('/pages/subscriber')
         } else {
       
-          router.push('/pages/user')
+          router.push('/')
         }
         setLoading(false)
       } catch (err) {

@@ -13,17 +13,17 @@ function Mobile_Dock() {
         <div className="dock md:hidden">
             <Link href="/">
                 <IoHomeOutline />
-                <span className="dock-label">{t('home')}</span>
+                <span className="dock-label font-bold">{t('home')}</span>
             </Link>
 
-            <Link href={`${auth ? '/pages/user/queues' : '/pages/auth/login'}`} className="dock-active">
-               <FaPeopleGroup />
-                <span className="dock-label">{t('my-queues')}</span>
+            <Link href={`${auth ? '/pages/user/queues' : '/pages/auth/login'}`} className="dock-active text-green-600">
+                <FaPeopleGroup />
+                <span className="dock-label font-bold">{t('my-queues')}</span>
             </Link>
 
-            <Link href="/pages/auth/login">
+            <Link href={`${auth ? '/pages/user/profile' : '/pages/auth/login'}`}>
                 <FiUser />
-                <span className="dock-label">{t('account')}</span>
+                <span className="dock-label font-bold">{t('account')}</span>
             </Link>
         </div>
     )

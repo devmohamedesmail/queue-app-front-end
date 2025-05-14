@@ -19,7 +19,6 @@ function page() {
       if (place) {
         setPlace(place);
       }
-      console.log("place", place)
     }
   }, [auth, places])
 
