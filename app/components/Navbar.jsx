@@ -57,27 +57,44 @@ function Navbar() {
 
 
 
+           
+            {auth ? (
+                <div className="flex gap-2">
+                    <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-auto focus:outline-0" />
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <AiOutlineUser size={20} />
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <li> <Link href="/pages/user/profile">{t('account')}</Link></li>
+                            <li><a>{auth?.user.user.email}</a></li>
+                            <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
+                            <button className='btn btn-ghost bg-black text-white mt-5' onClick={() => handle_toggle_lang()}>{i18n.language === 'en' ? 'العربية' : 'English'}</button>
 
-            {auth ? (<div className="flex gap-2">
-                <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-auto focus:outline-0" />
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                        <AiOutlineUser size={20} />
+                        </ul>
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li> <Link href="/pages/user/profile">{t('account')}</Link></li>
-                        <li><a>{auth?.user.user.email}</a></li>
-                        <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
-                        <li className="mt-10"><a><button  onClick={() => handle_toggle_lang()}>{i18n.language === 'en' ? 'العربية' : 'English'}</button></a></li>
-
-                    </ul>
                 </div>
-            </div>) : (
-                <>
-                    <Link href="/pages/auth/login"><CiUser  size={20} /></Link>
-                </>)}
+            ) : (
+                
+             <div className="flex gap-2">
+                    <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-auto focus:outline-0" />
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <AiOutlineUser size={20} />
+                        </div>
+                        <ul
+                            tabIndex={0}
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                             <Link href="/pages/auth/login" className='btn btn-ghost rounded-full'>{t('login-register')}</Link>
+                            <button className='btn btn-ghost bg-black text-white mt-5' onClick={() => handle_toggle_lang()}>{i18n.language === 'en' ? 'العربية' : 'English'}</button>
+
+                        </ul>
+                    </div>
+                </div>
+            
+            )}
 
 
 

@@ -4,9 +4,9 @@ import React from 'react'
 function page() {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1 className='text-2xl'>Home Page</h1>
 
-      <Link href="/pages/subscriber/queues">queues</Link>
+      
     </div>
   )
 }
