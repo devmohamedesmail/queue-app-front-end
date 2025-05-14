@@ -7,10 +7,11 @@ import Custom_service_item from '@/app/custom/Custom_service_item';
 import Footer from '@/app/components/Footer';
 import Mobile_Dock from '@/app/components/Mobile_Dock';
 import Service_skeleton from '@/app/components/skeletons/Service_skeleton';
+import { useTranslation } from 'react-i18next';
 export default function page({ params }) {
     const { id } = params;
     const [services, setServices] = useState([]);
-
+    const { t } = useTranslation()
 
 
 
@@ -33,6 +34,7 @@ export default function page({ params }) {
         <div>
             <Navbar />
             <div className="container m-auto px-5 my-10">
+                <h2 className="text-center text-xl font-bold mb-5">{t('select-your-service')}</h2>
                 {services && services.length > 0 ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {services.map((service, index) => (
@@ -41,12 +43,12 @@ export default function page({ params }) {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <Service_skeleton/>
-                        <Service_skeleton/>
-                        <Service_skeleton/>
-                        <Service_skeleton/>
-                        <Service_skeleton/>
-                        <Service_skeleton/>
+                        <Service_skeleton />
+                        <Service_skeleton />
+                        <Service_skeleton />
+                        <Service_skeleton />
+                        <Service_skeleton />
+                        <Service_skeleton />
                     </div>
                 )}
             </div>

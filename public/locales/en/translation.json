@@ -105,7 +105,9 @@
 	"all-queues":" All Queues ",
 	"added-success":"Added Successfully",
 	"add-new-place":"Add New Place",
-	"no-queues":"No Waiting Queues "
+	"no-queues":"No Waiting Queues ",
+	"select-your-service":"Select Your Service",
+	"no-waiting":"No Waiting Queues"
 	
 	
 }
