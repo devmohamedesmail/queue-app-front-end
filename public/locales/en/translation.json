@@ -104,7 +104,8 @@
 	"your-queues":" Your Queues ",
 	"all-queues":" All Queues ",
 	"added-success":"Added Successfully",
-	"add-new-place":"Add New Place"
+	"add-new-place":"Add New Place",
+	"no-queues":"No Waiting Queues "
 	
 	
 }

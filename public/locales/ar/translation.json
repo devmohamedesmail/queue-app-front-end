@@ -103,7 +103,8 @@
 	"now-serving":" الان يخدم ",
 	"your-queues":"  طوابيرك ",
 	"all-queues":" جميع الادوار ",
-	"added-success":"تم الاضافة بنجاح"
+	"added-success":"تم الاضافة بنجاح",
+	"no-queues": "لا توجد طوابير انتظار"
 	
 	
 }

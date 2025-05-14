@@ -1,16 +1,17 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { api } from '@/app/config/api';
 import axios from 'axios';
 import Service_skeleton from '@/app/components/skeletons/Service_skeleton';
 import { FaPlay } from "react-icons/fa";
 import { TiCancel } from "react-icons/ti";
+import { AuthContext } from '@/app/context/AuthContext';
 
 function page({ searchParams }) {
   const { t } = useTranslation();
   const [waitingList, setWaitingList] = useState(null)
-
+  const { auth } = useContext(AuthContext)
 
   const fetch_all_waiting_list = async () => {
     try {
@@ -28,10 +29,27 @@ function page({ searchParams }) {
   }, [])
 
 
-const handle_active_queue = (item) =>{
-  const audio = new Audio('/assets/sound.mp3') 
-    audio.play()
-}
+  const handle_active_queue = async (item) => {
+
+
+    try {
+      const res = await axios.get(`${api.baseUrl}api/v1/queues/active/queue/${item._id}/${auth.user.user._id}`);
+
+      if (res.status === 200) {
+        const audio = new Audio('/assets/sound.mp3')
+        audio.play()
+        fetch_all_waiting_list()
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
+
+
+
+
+
+  }
 
 
 
@@ -50,7 +68,7 @@ const handle_active_queue = (item) =>{
             <Service_skeleton />
           </div>
         ) : waitingList.length === 0 ? (
-          <p className="text-center text-gray-500">{t('no-queues')}</p>
+          <p className="text-center text-gray-500 text-2xl mt-10">{t('no-queues')}</p>
         ) : (
           waitingList.map((item, index) => (
             <div key={index} className="bg-white shadow p-4 rounded mb-3 flex justify-between items-center">
