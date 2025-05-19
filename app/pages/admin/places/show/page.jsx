@@ -7,9 +7,7 @@ import DataTable from 'react-data-table-component';
 import { api } from '@/app/config/api';
 import { FaTrash } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import Custom_input from '@/app/custom/Custom_input';
+
 
 
 export default function page() {
@@ -17,7 +15,7 @@ export default function page() {
   const { places } = useContext(PlaceContext);
   const [filterText, setFilterText] = useState('');
   const [isClient, setIsClient] = useState(false);
-  const [selectedPlace, setSelectedPlace] = useState(null);
+
 
   useEffect(() => {
     setIsClient(true);
@@ -77,22 +75,6 @@ export default function page() {
       },
     },
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -110,46 +110,9 @@ export default function page() {
 
 
 
-  const handle_login_user = async () => {
-    try {
-      setLoading(true)
-      const res = await login(email, password)
-      console.log(res)
-      if (res.status === 200) {
-        toast.success('✅ Registration successful');
-        setEmail('')
-        setPassword('')
-      }
-      setLoading(false)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  
 
 
-  const handle_register_user = async (e) => {
-
-    try {
-      setLoading(true)
-      const res = await register(name, email, password)
-      if (res.status === 201) {
-        toast.success('✅ Registration successful');
-
-        setName('')
-        setEmail('')
-        setPassword('')
-      }
-      setLoading(false)
-
-    } catch (error) {
-      setLoading(false)
-
-    } finally {
-      setLoading(false)
-    }
-
-
-  }
 
 
 
@@ -163,7 +126,7 @@ export default function page() {
 
 
 
-        <div className='w-full md:1/2 lg:w-1/3 m-auto mt-10 p-5  shadow-lg rounded-lg'>
+        <div className='w-full md:1/2 lg:w-1/3 m-auto mt-10 p-5  shadow-lg rounded-lg my-10'>
           <div className='flex justify-center gap-5 my-10 bg-gray-200 py-2 px-2 rounded-lg'>
             <button className={`px-5 py-2 flex-1 transition-colors ease-in-out duration-500 rounded-lg ${activeTab === 'login' ? 'bg-black text-white' : 'bg-white text-black'}`} onClick={() => setActiveTab('login')}>{t('login')}</button>
             <button className={`px-5 py-2 flex-1 transition-colors ease-in-out duration-500 rounded-lg ${activeTab === 'register' ? 'bg-black text-white' : 'bg-white text-black'}`} onClick={() => setActiveTab('register')}>{t('register')}</button>

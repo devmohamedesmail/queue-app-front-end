@@ -20,7 +20,12 @@ function page() {
         try {
             const response = await axios.get(`${api.baseUrl}api/v1/queues/user/queues/${userId}`)
             console.log(response.data)
-            setQueues(response.data)
+            
+            if (response.data.length > 0) {
+               setQueues(response.data) 
+            }else{
+                setQueues([])
+            }
         } catch (error) {
             console.log(error)
         }

@@ -107,7 +107,10 @@
 	"add-new-place":"Add New Place",
 	"no-queues":"No Waiting Queues ",
 	"select-your-service":"Select Your Service",
-	"no-waiting":"No Waiting Queues"
+	"no-waiting":"No Waiting Queues",
+	"no-data":"No Data Found",
+	"search":"Search"
+	
 	
 	
 }

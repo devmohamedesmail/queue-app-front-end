@@ -22,8 +22,6 @@ const PlaceProvider = ({ children }) => {
             setPlaces(response.data.data);    
            
         } catch (err) {
-            
-            
             console.log("Error",err); 
         }
     }
