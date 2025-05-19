@@ -98,18 +98,18 @@
 	"logout-success": " تم تسجيل الخروج بنجاح",
 	"login-failed": " فشل تسجيل الدخول",
 	"queue-booked-success": "تم حجز الدور بنجاح",
-	"book-turn":" احجز دورك",
-	"your-queue":" دورك ",
-	"now-serving":" الان يخدم ",
-	"your-queues":"  طوابيرك ",
-	"all-queues":" جميع الادوار ",
-	"added-success":"تم الاضافة بنجاح",
+	"book-turn": " احجز دورك",
+	"your-queue": " دورك ",
+	"now-serving": " الان يخدم ",
+	"your-queues": "  طوابيرك ",
+	"all-queues": " جميع الادوار ",
+	"added-success": "تم الاضافة بنجاح",
 	"no-queues": "لا توجد طوابير انتظار",
-	"select-your-service":" اختر خدمتك",
-	"no-waiting":" لا توجد طوابير انتظار",
+	"select-your-service": " اختر خدمتك",
+	"no-waiting": " لا توجد طوابير انتظار",
 	"no-data": "لا توجد بيانات",
-	"search":" بحث ",
-	"create-new-place": " اضافه مكان جديد "
-	
-	
+	"search": " بحث ",
+	"create-new-place": " اضافه مكان جديد ",
+	"description-en": "الوصف بالإنجليزية",
+	"description-ar": "الوصف بالعربية"
 }

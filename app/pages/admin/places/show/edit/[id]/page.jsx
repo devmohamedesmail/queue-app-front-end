@@ -10,7 +10,9 @@ import Link from 'next/link';
 import { FaPlus } from "react-icons/fa6";
 import { FaTrashAlt } from "react-icons/fa";
 import { PlaceContext } from '@/app/context/PlaceContext';
-
+import { toast } from 'react-toastify';
+import axios from 'axios';
+import { api } from '@/app/config/api';
 
 function page({ params }) {
     const { t } = useTranslation();
@@ -29,6 +31,15 @@ function page({ params }) {
         if (places && params.id) {
             const matchedPlace = places.find(p => p._id === params.id);
             setPlace(matchedPlace)
+
+            if (matchedPlace) {
+            setDaysOfWork(matchedPlace.daysOfWork || []);
+            setServices((matchedPlace.services || []).map(service => ({
+                titleEn: service.nameEn,
+                titleAr: service.nameAr,
+                estimatedTime: service.estimateTime
+            })));
+        }
         }
     }, [places, params.id])
 
@@ -80,6 +91,7 @@ function page({ params }) {
         }),
         onSubmit: async (values) => {
             try {
+                console.log("fdsfdsfdsf")
                 setLoading(true)
                 const formData = new FormData();
                 Object.entries(values).forEach(([key, value]) => {
@@ -98,7 +110,7 @@ function page({ params }) {
                 console.log('Form Data:', formDataObject);
 
 
-                const response = await axios.post(`${api.baseUrl}api/v1/places/add/new/place`, formData, {
+                const response = await axios.post(`${api.baseUrl}api/v1/places/update/place/${place._id}`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                     },
@@ -108,12 +120,14 @@ function page({ params }) {
                     console.log('Place added successfully', response.data);
                     toast.success(t('added-success'));
                 } else {
-                    console.error('Error adding place');
+                    console.log('Error adding place');
                     toast.error(t('error'));
                 }
+                console.log(response)
             } catch (error) {
                 setLoading(false)
                 toast.error(t('error'));
+                console.log(error)
             } finally {
                 setLoading(false)
             }
@@ -322,7 +336,7 @@ function page({ params }) {
 
 
 
-                        {loading ? <div className="loading loading-spinner loading-lg"></div> : <Custom_button title={t('save')} type="submit" />}
+                        {loading ? <div className="loading loading-spinner loading-lg"></div> : <Custom_button title={t('update')} type="submit" />}
                     </div>
 
 

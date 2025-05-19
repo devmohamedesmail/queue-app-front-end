@@ -6,6 +6,10 @@ import { useTranslation } from 'react-i18next';
 import { CiHome } from "react-icons/ci";
 import { MdOutlinePlace } from "react-icons/md";
 import { FaUsersGear } from "react-icons/fa6";
+import { IoSettingsOutline } from "react-icons/io5";
+
+
+
 function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
   const { t } = useTranslation();
   const { settings } = useContext(PlaceContext)
@@ -27,6 +31,7 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
           <Custom_sidebar_item icon={<CiHome />} link="/pages/admin/"  title={t('home')} />
           <Custom_sidebar_item icon={<MdOutlinePlace />} link="/pages/admin/places"  title={t('places')} />
           <Custom_sidebar_item icon={<FaUsersGear />} link="/pages/admin/users"  title={t('users')} />
+          <Custom_sidebar_item icon={<IoSettingsOutline />} link="/pages/admin/setting"  title={t('setting')} />
 
 
 

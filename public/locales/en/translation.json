@@ -109,7 +109,9 @@
 	"select-your-service":"Select Your Service",
 	"no-waiting":"No Waiting Queues",
 	"no-data":"No Data Found",
-	"search":"Search"
+	"search":"Search",
+	"description-en":"English Description",
+	"description-ar":"Arabic Description"
 	
 	
 	
