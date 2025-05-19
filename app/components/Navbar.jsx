@@ -24,7 +24,6 @@ function Navbar() {
             setAuth(null);
             localStorage.removeItem('user');
             router.push('/')
-            console.log("logout")
             toast.success(t('logout-success'));
         } catch (error) {
             console.log("Logout error:", error);

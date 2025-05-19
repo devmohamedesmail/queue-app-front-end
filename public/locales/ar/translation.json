@@ -108,7 +108,8 @@
 	"select-your-service":" اختر خدمتك",
 	"no-waiting":" لا توجد طوابير انتظار",
 	"no-data": "لا توجد بيانات",
-	"search":" بحث "
+	"search":" بحث ",
+	"create-new-place": " اضافه مكان جديد "
 	
 	
 }

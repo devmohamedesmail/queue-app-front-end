@@ -7,13 +7,14 @@ import { CiUser } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import Language_switcher from './Language_switcher'
 function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
 
 
 
     const { settings } = useContext(PlaceContext)
     const { auth, setAuth, login, register, logout } = useContext(AuthContext)
-    const {t}=useTranslation()
+    const { t } = useTranslation()
     const router = useRouter()
     const handle_logout = async () => {
         try {
@@ -50,20 +51,16 @@ function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
                     className="input input-bordered w-24 md:w-auto"
                 />
                 <div className="dropdown dropdown-end">
-                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                            <AiOutlineUser size={20} />
-                                        </div>
+                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <AiOutlineUser size={20} />
+                    </div>
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow z-50"
                     >
-                        <li>
-                            <a className="justify-between">
-                                Profile <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
+                        <li><a href="">{auth?.user?.user?.name}</a></li>
                         <li><a><button onClick={() => handle_logout()}>{t('logout')}</button></a></li>
+                        <Language_switcher />
                     </ul>
                 </div>
             </div>

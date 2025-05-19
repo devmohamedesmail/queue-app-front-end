@@ -9,12 +9,13 @@ import Link from 'next/link'
 import { FaTrash } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
 import Custom_input from '@/app/custom/Custom_input'
+import Custom_button from '@/app/custom/Custom_button'
 
 function page() {
   const [users, setusers] = useState(null)
   const { t, i18n } = useTranslation()
   const [filterText, setFilterText] = useState('');
-
+  const [selectedUser, setSelectedUser] = useState(null);
 
 
   const fetch_users = async () => {
@@ -57,7 +58,12 @@ function page() {
       name: t('actions'),
       cell: row => (
         <div className="flex space-x-2">
-          <Link href={`/pages/admin/places/show/edit/${row._id}`} className="btn btn-success"> <MdEdit color='white' /> </Link>
+
+          <button className="btn btn-success"
+            onClick={() => {
+              setSelectedUser(row);
+              document.getElementById('my_modal_3').showModal();
+            }}> <MdEdit color='white' /> </button>
           <button className="btn btn-error bg-red-600" onClick={() => console.log(row)}><FaTrash color='white' /></button>
         </div>
       ),
@@ -104,6 +110,30 @@ function page() {
         customStyles={customStyles}
         noDataComponent={<div className="text-center py-4">{t('no-data')}</div>}
       />
+
+
+      <dialog id="my_modal_3" className="modal">
+        <div className="modal-box">
+          <form method="dialog">
+           
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+          </form>
+          {selectedUser ? (
+            <>
+              <h3 className="font-bold text-lg">{t('edit')}</h3>
+              <div className="py-4 space-y-2">
+                <Custom_input value={selectedUser.name} />
+                <Custom_input value={selectedUser.email} />
+                
+                <Custom_button title={t('update')} />
+               
+              </div>
+            </>
+          ) : (
+            <p>{t('no-user-selected')}</p>
+          )}
+        </div>
+      </dialog>
     </div>
   )
 }
