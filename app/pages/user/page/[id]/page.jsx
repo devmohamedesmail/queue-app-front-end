@@ -11,19 +11,19 @@ import Loader from '@/app/components/Loader'
 
 
 function Page({ params }) {
-    // const { pages } = useContext(DataContext);
-    // const { i18n } = useTranslation();
-    // const [page, setPage] = useState(null)
+    const { pages } = useContext(DataContext);
+    const { i18n } = useTranslation();
+    const [page, setPage] = useState(null)
 
     // const page = pages.find(p => p._id === params.id);
 
 
-    // useEffect(() => {
-    //     if (pages && params.id) {
-    //         const found = pages.find(p => p._id === params.id);
-    //         setPage(found || null);
-    //     }
-    // }, [])
+    useEffect(() => {
+        if (pages && params.id) {
+            const found = pages.find(p => p._id === params.id);
+            setPage(found || null);
+        }
+    }, [])
 
 
 
@@ -37,7 +37,7 @@ function Page({ params }) {
 
         <div>
             <Navbar />
-            {/* {page && pages ? (
+            {page && pages ? (
                 <div className="container m-auto">
                     <h5 className='bg-gray-100 text-center font-bold text-2xl py-10'> {i18n.language === "ar" ? page.title_ar : page.title_en}</h5>
                     
@@ -47,7 +47,7 @@ function Page({ params }) {
                 </div>
             ) : (
                 <p>loading....</p>
-            )} */}
+            )}
 
 
             <Footer />
