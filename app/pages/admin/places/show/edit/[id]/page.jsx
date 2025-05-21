@@ -91,7 +91,7 @@ function page({ params }) {
         }),
         onSubmit: async (values) => {
             try {
-                console.log("fdsfdsfdsf")
+                
                 setLoading(true)
                 const formData = new FormData();
                 Object.entries(values).forEach(([key, value]) => {
@@ -117,7 +117,7 @@ function page({ params }) {
                 });
                 setLoading(false)
                 if (response.status === 200) {
-                    console.log('Place added successfully', response.data);
+                 
                     toast.success(t('added-success'));
                 } else {
                     console.log('Error adding place');

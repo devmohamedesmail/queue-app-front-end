@@ -8,12 +8,15 @@ import * as Yup from 'yup'
 import { PlaceContext } from '@/app/context/PlaceContext';
 import Custom_button from '@/app/custom/Custom_button';
 import Custom_spinner from '@/app/custom/Custom_spinner';
+import axios from 'axios';
+import { api } from '@/app/config/api';
+import { toast } from 'react-toastify';
 
 function SettingPage() {
   const { t } = useTranslation();
   const { settings } = useContext(PlaceContext)
   const [loading, setLoading] = useState(false)
-
+  const [logo, setLogo] = useState(null);
 
 
 
@@ -35,7 +38,34 @@ function SettingPage() {
       logo: settings?.logo || '',
     },
     onSubmit: async (values) => {
+      setLoading(true);
+      try {
+        const formData = new FormData();
+        formData.append("nameEn", values.nameEn);
+        formData.append("nameAr", values.nameAr);
+        formData.append("descriptionEn", values.descriptionEn);
+        formData.append("descriptionAr", values.descriptionAr);
+        formData.append("address", values.address);
+        formData.append("email", values.email);
+        formData.append("phone", values.phone);
+        if (logo) {
+          formData.append("logo", logo);
+        }
 
+        const res = await axios.post(`${api.baseUrl}api/v1/settings/update/settings`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+
+
+        toast.success(t('added-success'));
+      } catch (error) {
+        console.log(error);
+
+      } finally {
+        setLoading(false);
+      }
     }
   })
 
@@ -56,7 +86,8 @@ function SettingPage() {
             <Custom_input label={t('email')} value={formik.values.email} name="email" onChange={formik.handleChange} />
             <Custom_input label={t('phone')} value={formik.values.phone} name="phone" onChange={formik.handleChange} />
             <label htmlFor="logo" className='border border-dashed p-3 flex justify-center items-center flex-col py-10 my-5'>
-              <input id="logo" type='file' className='hidden' />
+              <img src={`${api.baseUrl2}${settings.logo}`} alt="" className='w-18 h-18' />
+              <input id="logo" type='file' className='hidden' onChange={(e) => setLogo(e.target.files[0])} />
               <p className=''>{t('select-image')}</p>
             </label>
 
