@@ -1,8 +1,7 @@
 'use client'
 import axios from "axios";
 import { api } from "../config/api";
-
-const { createContext, useState, useEffect } = require("react")
+import React, { createContext, useState, useEffect } from 'react';
 
 
 const DataContext = createContext()
