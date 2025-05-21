@@ -5,12 +5,17 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { FaPhone } from "react-icons/fa6";
 import { IoLocationOutline } from "react-icons/io5";
 import { api } from '../config/api';
+import { DataContext } from '../context/DataContext';
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 
 export default function Footer() {
+    const { places, settings } = useContext(PlaceContext)
+    const { pages } = useContext(DataContext)
+    const { t, i18n } = useTranslation();
 
 
-    const {places, settings} = useContext(PlaceContext)
 
 
     return (
@@ -40,9 +45,9 @@ export default function Footer() {
 
             <nav>
                 <h6 className="footer-title">Legal</h6>
-                <a className="link link-hover">Terms of use</a>
-                <a className="link link-hover">Privacy policy</a>
-                <a className="link link-hover">Cookie policy</a>
+                {pages && pages.map((item, index) => (
+                    <Link href={`/pages/user/page/${item._id}`}>{i18n.language === "ar" ? item.title_ar : item.title_en}</Link>
+                ))}
             </nav>
             <nav>
                 <h6 className="footer-title">Contact</h6>

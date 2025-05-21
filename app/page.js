@@ -15,7 +15,7 @@ import { PlaceContext } from "./context/PlaceContext";
 export default function Home() {
   const { t, i18n } = useTranslation();
   const {settings} = useContext(PlaceContext)
-  console.log(settings)
+
   return (
    <>
    
