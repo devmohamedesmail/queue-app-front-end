@@ -4,39 +4,57 @@ import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from '@/app/context/DataContext'
 import { useTranslation } from 'react-i18next'
 import parse from 'html-react-parser'
+import Navbar from '@/app/components/Navbar'
+import Footer from '@/app/components/Footer'
+import Mobile_Dock from '@/app/components/Mobile_Dock'
+import Loader from '@/app/components/Loader'
+
 
 function Page({ params }) {
     const { pages } = useContext(DataContext);
-    const [page, setPage] = useState(null);
     const { i18n } = useTranslation();
+    const [page,setPage]=useState(null)
 
-    const [isClient, setIsClient] = useState(false);
+    // const page = pages.find(p => p._id === params.id);
 
-    // Ensure this runs only on client to avoid hydration mismatch
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
 
-    useEffect(() => {
-        if (isClient && pages && params.id) {
+useEffect(()=>{
+    if (pages && params.id) {
             const found = pages.find(p => p._id === params.id);
             setPage(found || null);
         }
-    }, [isClient, pages, params.id]);
+},[])
 
-    if (!isClient) return null; // avoid mismatch
-    if (!page) return <div className="text-center p-10">Page not found</div>;
 
-    const title = i18n.language === 'ar' ? page.title_ar : page.title_en;
-    const content = i18n.language === 'ar' ? page.content_ar : page.content_en;
+
+
+
+
 
     return (
-        <div className="container mx-auto py-10 px-4">
-            <h1 className="text-3xl font-bold mb-4">{title}</h1>
-            <div className="prose max-w-none">
-                {parse(content || '')}
-            </div>
+
+
+
+        <div>
+            <Navbar />
+            {page && pages ? (
+                <div className="container m-auto">
+                    <h5 className='bg-gray-100 text-center font-bold text-2xl py-10'> {i18n.language === "ar" ? page.title_ar : page.title_en}</h5>
+                    
+                    {
+                       i18n.language === "ar" ? <p className='text-right '>{parse(page.content_ar)}</p> : <p>{parse(page.content_en)}</p>
+                    }
+                </div>
+            ) : (
+                <p>loading....</p>
+            )}
+
+            <Footer />
+            <Mobile_Dock />
         </div>
+
+
+
     );
 }
 
