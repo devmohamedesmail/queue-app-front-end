@@ -86,7 +86,9 @@ function SettingPage() {
             <Custom_input label={t('email')} value={formik.values.email} name="email" onChange={formik.handleChange} />
             <Custom_input label={t('phone')} value={formik.values.phone} name="phone" onChange={formik.handleChange} />
             <label htmlFor="logo" className='border border-dashed p-3 flex justify-center items-center flex-col py-10 my-5'>
-              <img src={`${api.baseUrl2}${settings.logo}`} alt="" className='w-18 h-18' />
+              {settings?.logo && (
+                <img src={`${api.baseUrl2}${settings.logo}`} alt="" className="w-18 h-18" />
+              )}
               <input id="logo" type='file' className='hidden' onChange={(e) => setLogo(e.target.files[0])} />
               <p className=''>{t('select-image')}</p>
             </label>
