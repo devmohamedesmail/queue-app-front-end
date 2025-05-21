@@ -114,20 +114,27 @@ export default function page({ searchParams }) {
 
 
       <div className='container m-auto px-5 flex flex-col justify-center items-center gap-5 py-10'>
-        <div className='card w-full bg-base-100 shadow-xl p-3'>
+        
+        
+        <div className='card w-full bg-base-100 shadow-xl p-3 border border-gray-200'>
           <div className='flex flex-col justify-between items-center'>
-            <h1 className='text-primary font-bold text-3xl'>{t('waiting-list')}</h1>
-            <h1>{waiting_list ? waiting_list.length : t('no-waiting')}</h1>
+            <h1 className='text-primary font-bold text-3xl  mb-4'>{t('waiting-list')}</h1>
+            <h1>{waiting_list && waiting_list.length > 0 ? waiting_list.length : t('no-waiting')}</h1>
           </div>
           <div className='flex justify-between items-center my-10'>
             <p>{t('estimated-time')}</p>
-            <p>{totalEstimatedTime} {t('minutes')}</p>
+            {totalEstimatedTime > 0 ? <p>{totalEstimatedTime} {t('minutes')}</p> : <p>{t('no-waiting-time')}</p>}
+            {/* <p>{totalEstimatedTime} {t('minutes')}</p> */}
           </div>
           <div className='flex justify-center items-center my-10'>
 
             {loading ? <Custom_spinner /> : <button onClick={() => handle_book_now()} className='btn btn-neutral w-full'>{t('book-queue')}</button>}
           </div>
         </div>
+
+
+
+
       </div>
 
 

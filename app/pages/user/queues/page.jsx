@@ -20,10 +20,10 @@ function page() {
         try {
             const response = await axios.get(`${api.baseUrl}api/v1/queues/user/queues/${userId}`)
             console.log(response.data)
-            
+
             if (response.data.length > 0) {
-               setQueues(response.data) 
-            }else{
+                setQueues(response.data)
+            } else {
                 setQueues([])
             }
         } catch (error) {
@@ -52,69 +52,68 @@ function page() {
 
                 {queues && queues.length > 0 ? (
                     <div className='flex flex-col justify-center items-center my-10'>
-                      <h3 className='font-bold text-md'>{t('your-queues')}</h3>
-                      <h3>{queues.length}</h3>
+                        <h3 className='font-bold text-md'>{t('your-queues')}</h3>
+                        <h3>{queues.length}</h3>
                     </div>) : (
-                        
-                        <>
-                        </>)}
+
+                    <>
+                    </>)
+                }
 
 
-                {queues ? (<>
-
-                    {queues && queues.length > 0 ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            {queues.map((queue, index) => (
-                                <div key={index} className="bg-white shadow rounded-lg p-0 overflow-hidden">
-
-                                    <div className="flex flex-col justify-center items-center bg-green-600 py-4">
-                                        <h4 className='font-bold text-2xl text-white'>{t('ahead-of-you')}</h4>
-                                        <h2 className="text-lg font-bold text-white">{queue.aheadOfYou}</h2>
-                                    </div>
+              
 
 
 
 
+                {queues ? (
+                    <>
+                        {queues && queues.length > 0 ? (
 
-                                    <div className="flex justify-between px-4 py-2">
-                                        <div className='flex flex-col justify-center items-center'>
-                                            <h4>{t('your-queue')}</h4>
-                                            <h2 className="text-lg font-bold">{queue.queue.queue}</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+                                {queues.map((queue,index) => (
+                                    <div key={index} className="bg-white shadow rounded-lg p-0 overflow-hidden">
+
+                                        <div className="flex flex-col justify-center items-center bg-green-600 py-4">
+                                            <h4 className='font-bold text-2xl text-white'>{t('ahead-of-you')}</h4>
+                                            <h2 className="text-lg font-bold text-white">{queue.aheadOfYou > 0 ? queue.aheadOfYou : t('no-one')}</h2>
                                         </div>
-                                        <div className='flex flex-col justify-center items-center'>
-                                            <h4>{t('now-serving')}</h4>
-                                            <h2 className="text-lg font-bold">{queue.nowServingQueue ? queue.nowServingQueue : '---'}</h2>
+
+                                        <div className="flex justify-between px-4 py-2">
+                                            <div className='flex flex-col justify-center items-center'>
+                                                <h4>{t('your-queue')}</h4>
+                                                <h2 className="text-lg font-bold">{queue.queue.queue}</h2>
+                                            </div>
+                                            <div className='flex flex-col justify-center items-center'>
+                                                <h4>{t('now-serving')}</h4>
+                                                <h2 className="text-lg font-bold">{queue.nowServingQueue ? queue.nowServingQueue : '---'}</h2>
+                                            </div>
+                                        </div>
+                                        <div className='flex flex-col  justify-center items-center p-2'>
+                                            <h4>{t('estimated-time')}</h4>
+                                            <h2 className="text-lg font-bold">{queue.estimatedTime}</h2>
                                         </div>
                                     </div>
-                                    <div className='flex flex-col  justify-center items-center p-2'>
-                                        <h4>{t('estimated-time')}</h4>
-                                        <h2 className="text-lg font-bold">{queue.estimatedTime}</h2>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    ) : (
-                        <div className=''>
-                            <p>no</p>
-                        </div>
-                    )}
+                                ))}
 
 
-
-
-                </>) : (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                    <Queue_skeleton />
-                </div>)}
+                            </div>) : (<p className='text-center'>{t('no-queues')}</p>)}
+                    </>
+                ) : (
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                        <Queue_skeleton />
+                    </div>)}
 
 
 
