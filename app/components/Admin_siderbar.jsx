@@ -7,7 +7,7 @@ import { CiHome } from "react-icons/ci";
 import { MdOutlinePlace } from "react-icons/md";
 import { FaUsersGear } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
-
+import { MdInsertPageBreak } from "react-icons/md";
 
 
 function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
@@ -32,6 +32,7 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
           <Custom_sidebar_item icon={<MdOutlinePlace />} link="/pages/admin/places"  title={t('places')} />
           <Custom_sidebar_item icon={<FaUsersGear />} link="/pages/admin/users"  title={t('users')} />
           <Custom_sidebar_item icon={<IoSettingsOutline />} link="/pages/admin/setting"  title={t('setting')} />
+          <Custom_sidebar_item icon={<MdInsertPageBreak />} link="/pages/admin/pages"  title={t('pages')} />
 
 
 
