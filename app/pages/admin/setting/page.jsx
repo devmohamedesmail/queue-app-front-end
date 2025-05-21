@@ -25,17 +25,17 @@ function SettingPage() {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {
-      nameEn: settings.nameEn || '',
-      nameAr: settings.nameAr || '',
-      descriptionEn: settings.descriptionEn || '',
-      descriptionAr: settings.descriptionAr || '',
-      address: settings.address || '',
-      email: settings.email || '',
-      phone: settings.phone || '',
-      logo: settings.logo || '',
+      nameEn: settings?.nameEn || '',
+      nameAr: settings?.nameAr || '',
+      descriptionEn: settings?.descriptionEn || '',
+      descriptionAr: settings?.descriptionAr || '',
+      address: settings?.address || '',
+      email: settings?.email || '',
+      phone: settings?.phone || '',
+      logo: settings?.logo || '',
     },
-    onSubmit : async (values) =>{
-      console.log(value)
+    onSubmit: async (values) => {
+
     }
   })
 
