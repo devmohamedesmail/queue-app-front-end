@@ -21,7 +21,7 @@ function page({ params }) {
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(false);
     const { places } = useContext(PlaceContext)
-    const [place,setPlace]=useState(null)
+    const [place, setPlace] = useState(null)
 
 
 
@@ -33,13 +33,13 @@ function page({ params }) {
             setPlace(matchedPlace)
 
             if (matchedPlace) {
-            setDaysOfWork(matchedPlace.daysOfWork || []);
-            setServices((matchedPlace.services || []).map(service => ({
-                titleEn: service.nameEn,
-                titleAr: service.nameAr,
-                estimatedTime: service.estimateTime
-            })));
-        }
+                setDaysOfWork(matchedPlace.daysOfWork || []);
+                setServices((matchedPlace.services || []).map(service => ({
+                    titleEn: service.nameEn,
+                    titleAr: service.nameAr,
+                    estimatedTime: service.estimateTime
+                })));
+            }
         }
     }, [places, params.id])
 
@@ -62,7 +62,7 @@ function page({ params }) {
         enableReinitialize: true,
         initialValues: {
             nameEn: place?.nameEn || '',
-            nameAr: place?.nameAr || '',    
+            nameAr: place?.nameAr || '',
             addressEn: place?.addressEn || '',
             addressAr: place?.addressAr || '',
             description: place?.description || '',
@@ -91,7 +91,7 @@ function page({ params }) {
         }),
         onSubmit: async (values) => {
             try {
-                
+
                 setLoading(true)
                 const formData = new FormData();
                 Object.entries(values).forEach(([key, value]) => {
@@ -117,7 +117,7 @@ function page({ params }) {
                 });
                 setLoading(false)
                 if (response.status === 200) {
-                 
+
                     toast.success(t('added-success'));
                 } else {
                     console.log('Error adding place');
@@ -127,6 +127,7 @@ function page({ params }) {
             } catch (error) {
                 setLoading(false)
                 toast.error(t('error'));
+
                 console.log(error)
             } finally {
                 setLoading(false)
@@ -209,6 +210,10 @@ function page({ params }) {
                             error={formik.touched.description && formik.errors.description}
                         />
                         <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-100 hover:border-gray-300">
+
+
+                            {place && place.image ? (<img src={`${api.baseUrl}uploads/${place.image}`} className='w-18 h-18' />) : (<></>)}
+
                             <input
                                 type="file"
                                 hidden

@@ -2,7 +2,10 @@ import React from 'react'
 
 function Custom_spinner() {
   return (
-    <span className="loading loading-spinner loading-xs"></span>
+   
+    <div className='flex justify-center items-center'>
+       <span className="loading loading-spinner loading-xs"></span>
+    </div>
   )
 }
 

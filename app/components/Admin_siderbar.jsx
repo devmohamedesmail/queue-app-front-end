@@ -23,8 +23,10 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}
       >
 
-        <img src={`${api.baseUrl}uploads/${settings?.logo}`} className='w-18' alt="" />
-
+       
+        <div className='flex justify-center items-center'>
+            <img src={`${api.baseUrl}${settings?.logo}`} className='w-18' alt="" />
+        </div>
 
         <ul>
 
