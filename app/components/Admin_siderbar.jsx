@@ -8,7 +8,7 @@ import { MdOutlinePlace } from "react-icons/md";
 import { FaUsersGear } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdInsertPageBreak } from "react-icons/md";
-
+import { CgWebsite } from "react-icons/cg";
 
 function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
   const { t } = useTranslation();
@@ -30,6 +30,7 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
 
         <ul>
 
+          <Custom_sidebar_item icon={<CgWebsite />} link="/"  title={t('visit-site')} />
           <Custom_sidebar_item icon={<CiHome />} link="/pages/admin/"  title={t('home')} />
           <Custom_sidebar_item icon={<MdOutlinePlace />} link="/pages/admin/places"  title={t('places')} />
           <Custom_sidebar_item icon={<FaUsersGear />} link="/pages/admin/users"  title={t('users')} />

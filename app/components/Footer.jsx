@@ -21,24 +21,21 @@ export default function Footer() {
     return (
         <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 pb-40">
             <aside>
-                <img src={`${api.baseUrl}uploads/${settings?.logo}`} alt={settings?.nameEn} className='w-18' />
-                <p>
-                    {settings?.descriptionEn} <br />
-                    {settings?.descriptionAr}
-                </p>
+                <img src={`${api.baseUrl}${settings?.logo}`} alt={settings?.nameEn} className='w-18' />
+                {i18n.language === "ar" ? <p> {settings?.descriptionAr}</p> : <p>{settings?.descriptionEn}</p>}
             </aside>
            
            
 
 
             <nav>
-                <h6 className="footer-title">Legal</h6>
+                <h6 className="footer-title">{t('useful-links')}</h6>
                 {pages && pages.map((item, index) => (
                     <Link href={`/pages/user/page/${item._id}`}>{i18n.language === "ar" ? item.title_ar : item.title_en}</Link>
                 ))}
             </nav>
             <nav>
-                <h6 className="footer-title">Contact</h6>
+                <h6 className="footer-title">{t('contact-us')}</h6>
                 <a className="link link-hover flex items-center"> <MdOutlineMailOutline /> <p className='mx-1'>{settings?.email}</p></a>
                 <a className="link link-hover flex items-center"><FaPhone /> <p className='mx-1'>{settings?.phone}</p></a>
                 <a className="link link-hover flex items-center"><IoLocationOutline /> <p className='mx-1'>{settings?.address}</p> </a>

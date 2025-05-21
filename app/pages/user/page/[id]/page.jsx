@@ -38,15 +38,15 @@ function Page({ params }) {
         <div>
             <Navbar />
             {page && pages ? (
-                <div className="container m-auto">
-                    <h5 className='bg-gray-100 text-center font-bold text-2xl py-10'> {i18n.language === "ar" ? page.title_ar : page.title_en}</h5>
+                <div className="container m-auto px-5 my-10">
+                    <h5 className='bg-gray-100 text-center font-bold text-2xl py-10 mb-3'> {i18n.language === "ar" ? page.title_ar : page.title_en}</h5>
                     
                     {
                        i18n.language === "ar" ? <p className='text-right '>{parse(page.content_ar)}</p> : <p>{parse(page.content_en)}</p>
                     }
                 </div>
             ) : (
-                <p>loading....</p>
+                <Loader />
             )}
 
 

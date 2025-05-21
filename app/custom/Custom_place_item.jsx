@@ -27,8 +27,8 @@ export default function Custom_place_item({ place }) {
       )}
 
       <div className="flex flex-col justify-center items-center p-4">
-        <h2 className="card-title text-center text-sm">{place.nameEn}</h2>
-        <p className='text-center text-xs '>{place.addressEn}</p>
+        <h2 className="card-title text-center text-sm h-12">{place.nameEn}</h2>
+        <p className='text-center text-xs mt-3 h-12 '>{place.addressEn}</p>
 
       </div>
 
