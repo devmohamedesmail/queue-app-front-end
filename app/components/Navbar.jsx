@@ -44,7 +44,7 @@ function Navbar() {
 
 
     return (
-        <div className="navbar bg-base-100  sticky top-0 shadow-xl">
+        <div className="navbar bg-base-100  shadow-xl">
             <div className="flex-1">
                 <Link href="/" className="btn btn-ghost text-xl">
 
@@ -58,7 +58,7 @@ function Navbar() {
 
            
             {auth ? (
-                <div className="flex gap-2">
+                <div className="flex gap-2 ">
                     <input type="text" placeholder="Search" className="input input-bordered w-44 md:w-auto focus:outline-0" />
                     <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

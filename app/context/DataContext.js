@@ -17,7 +17,7 @@ const DataProvider = ({ children }) => {
         try {
             const res = await axios.get(`${api.baseUrl}api/v1/pages`)
             setPages(res.data.data)
-            console.log(res.data.data)
+            
         } catch (error) {
             console.log("error fetch page", error)
         }

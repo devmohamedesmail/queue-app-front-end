@@ -31,7 +31,7 @@ export default function Footer() {
             <nav>
                 <h6 className="footer-title">{t('useful-links')}</h6>
                 {pages && pages.map((item, index) => (
-                    <Link href={`/pages/user/page/${item._id}`}>{i18n.language === "ar" ? item.title_ar : item.title_en}</Link>
+                    <Link key={index} href={`/pages/user/page/${item._id}`}>{i18n.language === "ar" ? item.title_ar : item.title_en}</Link>
                 ))}
             </nav>
             <nav>

@@ -37,7 +37,7 @@ const PlaceProvider = ({ children }) => {
     }
 
     return (
-        <PlaceContext.Provider value={{ places , settings }}>
+        <PlaceContext.Provider value={{ places , settings ,fetchplaces ,fetch_settings }}>
             {children}
         </PlaceContext.Provider>
     );

@@ -14,7 +14,7 @@ import { toast } from 'react-toastify';
 
 function SettingPage() {
   const { t } = useTranslation();
-  const { settings } = useContext(PlaceContext)
+  const { places , settings ,fetchplaces ,fetch_settings } = useContext(PlaceContext)
   const [loading, setLoading] = useState(false)
   const [logo, setLogo] = useState(null);
 
@@ -58,7 +58,7 @@ function SettingPage() {
           },
         });
 
-
+        fetch_settings();
         toast.success(t('added-success'));
       } catch (error) {
         console.log(error);

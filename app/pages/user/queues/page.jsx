@@ -8,6 +8,7 @@ import axios from 'axios'
 import { api } from '@/app/config/api'
 import { AuthContext } from '@/app/context/AuthContext'
 import Queue_skeleton from '@/app/components/skeletons/Queue_skeleton'
+
 function page() {
     const { t, i18n } = useTranslation();
     const [queues, setQueues] = useState(null);
@@ -21,13 +22,14 @@ function page() {
             const response = await axios.get(`${api.baseUrl}api/v1/queues/user/queues/${userId}`)
             console.log(response.data)
 
-            if (response.data.length > 0) {
-                setQueues(response.data)
+            if (response.data.queues.length > 0) {
+                setQueues(response.data.queues)
+                
             } else {
                 setQueues([])
             }
         } catch (error) {
-            console.log(error)
+            console.log("Error fetching queues",error)
         }
     }
 
@@ -98,7 +100,12 @@ function page() {
                                 ))}
 
 
-                            </div>) : (<p className='text-center'>{t('no-queues')}</p>)}
+                            </div>) : (
+                                <div className="flex flex-col justify-center items-center">
+                                    <img src="/images/queue.png" className="w-32" />
+                                    <p className='text-center text-xl mt-5'>{t('no-queues-today')}</p>
+                                </div>
+                        )}
                     </>
                 ) : (
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>

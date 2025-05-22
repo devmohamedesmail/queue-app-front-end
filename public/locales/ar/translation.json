@@ -118,6 +118,7 @@
 	"select-this-service":" اختر هذه الخدمة ",
 	"select-this-place":" اختر هذا المكان ",
 	"no-waiting-time":" لا يوجد وقت انتظار",
-	"no-one":" لا يوجد شخص قبلك"
+	"no-one":" لا يوجد شخص قبلك",
+	"no-queues-today":" لا توجد ادوار اليوم لك "
 	
 }

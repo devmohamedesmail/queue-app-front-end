@@ -20,7 +20,7 @@ function page({ params }) {
     const [daysOfWork, setDaysOfWork] = useState([]);
     const [services, setServices] = useState([]);
     const [loading, setLoading] = useState(false);
-    const { places } = useContext(PlaceContext)
+    const { places , settings ,fetchplaces ,fetch_settings } = useContext(PlaceContext)
     const [place, setPlace] = useState(null)
 
 
@@ -117,8 +117,9 @@ function page({ params }) {
                 });
                 setLoading(false)
                 if (response.status === 200) {
-
+                    fetchplaces()
                     toast.success(t('added-success'));
+
                 } else {
                     console.log('Error adding place');
                     toast.error(t('error'));
