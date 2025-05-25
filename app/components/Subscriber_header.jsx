@@ -42,6 +42,7 @@ function Subscriber_header() {
                 <Link className='btn btn-neutral mx-1 shadow-none ' href="/pages/subscriber/queues" >{t('queues')}</Link>
                 <Link className='btn btn-neutral mx-1 shadow-none' href="/pages/subscriber/setting" >{t('setting')}</Link>
                 <Link className='btn btn-neutral mx-1 shadow-none' href="/pages/subscriber/statistics" >{t('statistics')}</Link>
+                <Link className='btn btn-neutral mx-1 shadow-none' href="/pages/subscriber/employees" >{t('employees')}</Link>
             </div>
 
 
@@ -57,6 +58,7 @@ function Subscriber_header() {
                         <Link className='btn btn-neutral mx-1 my-1 shadow-none' href="/pages/subscriber/queues" >{t('queues')}</Link>
                         <Link className='btn btn-neutral mx-1 my-1 shadow-none' href="/pages/subscriber/setting" >{t('setting')}</Link>
                         <Link className='btn btn-neutral mx-1 my-1 shadow-none' href="/pages/subscriber/statistics" >{t('statistics')}</Link>
+                        <Link className='btn btn-neutral mx-1 my-1 shadow-none' href="/pages/subscriber/employees" >{t('employees')}</Link>
 
 
 

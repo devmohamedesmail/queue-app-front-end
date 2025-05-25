@@ -28,7 +28,12 @@ export default function page({ searchParams }) {
 
 
 
-
+useEffect(() => {
+  console.log("searchParams", searchParams)
+  if (!searchParams?.placeId || !searchParams?.serviceId) {
+    alert("الرابط غير مكتمل، لا يوجد placeId أو serviceId")
+  }
+}, [searchParams])
 
 
 
