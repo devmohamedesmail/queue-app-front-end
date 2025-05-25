@@ -120,6 +120,12 @@
 	"no-waiting-time":" لا يوجد وقت انتظار",
 	"no-one":" لا يوجد شخص قبلك",
 	"no-queues-today":" لا توجد ادوار اليوم لك ",
-	"employees":" الموظفين "
+	"employees":" الموظفين ",
+	"name-required":" الاسم مطلوب ",
+	"add-employee":" اضافة موظف ",
+	"edit-employee":" تعديل الموظف ",
+	"show-employees":" عرض الموظفين ",
+	"no-employees":" لا يوجد موظفين "
+	
 	
 }

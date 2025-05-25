@@ -120,7 +120,12 @@
 	"no-waiting-time":"No Waiting Time",
 	"no-one":"No One Ahead Of You",
 	"no-queues-today":"No Queues Today",
-	"employees":"Employees"
+	"employees":"Employees",
+	"name-required":"Name is required",
+	"add-employee":"Add Employee",
+	"edit-employee":" Edit Employee ",
+	"show-employees":" Show Employees ",
+	"no-employees":" No Employees "
 
 	
 	
