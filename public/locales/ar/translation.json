@@ -125,7 +125,10 @@
 	"add-employee":" اضافة موظف ",
 	"edit-employee":" تعديل الموظف ",
 	"show-employees":" عرض الموظفين ",
-	"no-employees":" لا يوجد موظفين "
+	"no-employees":" لا يوجد موظفين ",
+	"reply-success":" تم الرد بنجاح",
+	"reply-failed":" فشل الرد"
+
 	
 	
 }

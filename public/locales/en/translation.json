@@ -125,7 +125,9 @@
 	"add-employee":"Add Employee",
 	"edit-employee":" Edit Employee ",
 	"show-employees":" Show Employees ",
-	"no-employees":" No Employees "
+	"no-employees":" No Employees ",
+	"reply-success":"Reply Successfully",
+	"reply-failed":"Reply Failed"
 
 	
 	

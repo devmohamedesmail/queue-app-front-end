@@ -6,6 +6,7 @@ import { FaBars } from "react-icons/fa";
 import { AuthContext } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import Language_switcher from './Language_switcher';
 
 
 function Subscriber_header() {
@@ -43,6 +44,7 @@ function Subscriber_header() {
                 <Link className='btn btn-neutral mx-1 shadow-none' href="/pages/subscriber/setting" >{t('setting')}</Link>
                 <Link className='btn btn-neutral mx-1 shadow-none' href="/pages/subscriber/statistics" >{t('statistics')}</Link>
                 <Link className='btn btn-neutral mx-1 shadow-none' href="/pages/subscriber/employees" >{t('employees')}</Link>
+                
             </div>
 
 
@@ -51,7 +53,9 @@ function Subscriber_header() {
                 <div className="drawer-content">
                     {/* Page content here */}
                     <label htmlFor="my-drawer" className="btn btn-neutral btn-outline drawer-button"><FaBars color='white' /></label>
+                    
                 </div>
+              
                 <div className="drawer-side">
                     <label htmlFor="my-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
@@ -65,6 +69,7 @@ function Subscriber_header() {
 
 
                         <div className='bottom-0 absolute right-0 left-0'>
+                              <Language_switcher />
                             <button onClick={() => handle_logout()} className='btn btn-neutral mx-1 my-1 shadow-none w-full'>{t('logout')}</button>
                         </div>
 

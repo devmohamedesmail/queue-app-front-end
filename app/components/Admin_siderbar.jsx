@@ -9,6 +9,7 @@ import { FaUsersGear } from "react-icons/fa6";
 import { IoSettingsOutline } from "react-icons/io5";
 import { MdInsertPageBreak } from "react-icons/md";
 import { CgWebsite } from "react-icons/cg";
+import { LiaHandsHelpingSolid } from "react-icons/lia";
 
 function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
   const { t } = useTranslation();
@@ -36,6 +37,7 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
           <Custom_sidebar_item icon={<FaUsersGear />} link="/pages/admin/users"  title={t('users')} />
           <Custom_sidebar_item icon={<IoSettingsOutline />} link="/pages/admin/setting"  title={t('setting')} />
           <Custom_sidebar_item icon={<MdInsertPageBreak />} link="/pages/admin/pages"  title={t('pages')} />
+          <Custom_sidebar_item icon={<LiaHandsHelpingSolid />} link="/pages/admin/help"  title={t('help')} />
 
 
 
