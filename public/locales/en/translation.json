@@ -127,7 +127,8 @@
 	"show-employees":" Show Employees ",
 	"no-employees":" No Employees ",
 	"reply-success":"Reply Successfully",
-	"reply-failed":"Reply Failed"
+	"reply-failed":"Reply Failed",
+	"scan-qrcode":"Scan Qr"
 
 	
 	

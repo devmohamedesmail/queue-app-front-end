@@ -127,7 +127,8 @@
 	"show-employees":" عرض الموظفين ",
 	"no-employees":" لا يوجد موظفين ",
 	"reply-success":" تم الرد بنجاح",
-	"reply-failed":" فشل الرد"
+	"reply-failed":" فشل الرد",
+	"scan-qrcode":"  امسح Qr"
 
 	
 	

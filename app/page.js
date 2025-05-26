@@ -10,6 +10,7 @@ import { useTranslation } from 'react-i18next';
 import Loader from "./components/Loader";
 import { useContext } from "react";
 import { PlaceContext } from "./context/PlaceContext";
+import Advantages from "./sections/Advantages";
 
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
      
      <Navbar />
      <Map />
+     <Advantages />
      <Banner />
      <Place_section />
      <Mobile_Dock />
