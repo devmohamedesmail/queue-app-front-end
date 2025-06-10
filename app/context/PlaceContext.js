@@ -19,8 +19,7 @@ const PlaceProvider = ({ children }) => {
     const fetchplaces = async () => {
         try {
             const response = await axios.get(`${api.baseUrl}api/v1/places`);
-            setPlaces(response.data.data);    
-           
+            setPlaces(response.data.data);     
         } catch (err) {
             console.log("Error",err); 
         }
@@ -30,7 +29,7 @@ const PlaceProvider = ({ children }) => {
         try {
             const response = await axios.get(`${api.baseUrl}api/v1/settings`);
             setSettings(response.data.data); 
-          
+             
         } catch (err) { 
             console.log("Error",err); 
         }

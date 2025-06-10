@@ -18,7 +18,7 @@ export default function Custom_place_item({ place }) {
       {place.image ? (
         <img
           className='w-full'
-          src={`${api.baseUrl}uploads/${place.image}`}
+          src={`${place.image}`}
           alt={place.nameEn} />
       ) : (
         <img

@@ -45,7 +45,7 @@ export default function page() {
       sortable: true,
       cell: row => (
         <img
-          src={`${api.baseUrl}uploads/${row.image}`}
+          src={`${row.image}`}
           alt={row.nameEn || 'image'}
           className="w-16 h-16 object-cover rounded"
         />

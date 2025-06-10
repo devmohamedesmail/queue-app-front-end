@@ -26,7 +26,7 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
 
        
         <div className='flex justify-center items-center'>
-            <img src={`${api.baseUrl}${settings?.logo}`} className='w-18' alt="" />
+            <img src={`${settings?.logo}`} className='w-18' alt="" />
         </div>
 
         <ul>
