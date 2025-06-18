@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { api } from '../config/api'
 import Link from 'next/link'
-import { CiLocationArrow1 } from "react-icons/ci";
 import { FaLocationArrow } from "react-icons/fa";
 import { PlaceContext } from '../context/PlaceContext';
 import { useTranslation } from 'react-i18next';
@@ -13,37 +12,44 @@ export default function Custom_place_item({ place }) {
   const {settings} = useContext(PlaceContext)
   const { t } = useTranslation();
   return (
-    <div className="overflow-hidden rounded-lg bg-base-100  shadow-sm">
-
-      {place.image ? (
+    <div className="rounded-xl bg-white shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-200 flex flex-col">
+      <div className="relative h-48 w-full overflow-hidden">
         <img
-          className='w-full'
-          src={`${place.image}`}
-          alt={place.nameEn} />
-      ) : (
-        <img
-          className='w-full'
-          src={`${api.baseUrl}uploads/${settings.logo}`}
-          alt={place.nameEn} />
-       
-      )}
-
-      <div className="flex flex-col justify-center items-center p-4">
-        <h2 className="card-title text-center text-sm h-12">{place.nameEn}</h2>
-        <p className='text-center text-xs mt-3 h-12 '>{place.addressEn}</p>
-
+          className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+          src={place.image ? `${place.image}` : `${api.baseUrl}uploads/${settings.logo}`}
+          alt={place.nameEn}
+        />
+        <div className="absolute top-2 right-2 bg-black/60 rounded-full p-2">
+          <BsQrCode color="white" size={22} />
+        </div>
       </div>
-
-      <div className='w-full mt-3 flex justify-between items-center mb-2 px-1'>
-        <Link className='h-10 mx-1 rounded w-full bg-black border flex justify-center items-center font-bold text-xs text-white' href={`/pages/user/services/${place._id}`} >{t('select-this-place')}</Link>
-        <Link className=' bg-green-600 h-10 w-10 rounded flex justify-center items-center' href={place.locationlink} > <FaLocationArrow color='white' /> </Link>
-       
-      </div>
-      <div className='px-3'>
-      <Link className=' bg-green-600 w-full h-10 rounded flex justify-center items-center' href={`/pages/user/${place._id}`} > 
-      <p className='text-xs mx-3 text-white'>{t('scan-qrcode')}</p>
-      
-      <BsQrCode color='white' size={20} /> </Link>
+      <div className="flex flex-col items-center p-5">
+        <h2 className="text-lg font-semibold text-gray-800 text-center mb-2">{place.nameEn}</h2>
+        <p className="text-gray-500 text-sm text-center mb-4">{place.addressEn}</p>
+        <div className="flex w-full gap-2">
+          <Link
+            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-semibold shadow hover:from-blue-600 hover:to-indigo-700 transition"
+            href={`/pages/user/services/${place._id}`}
+          >
+            {t('select-this-place')}
+          </Link>
+          <Link
+            className="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r from-green-500 to-emerald-600 shadow hover:from-green-600 hover:to-emerald-700 transition"
+            href={place.locationlink}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={t('location')}
+          >
+            <FaLocationArrow color="white" size={18} />
+          </Link>
+        </div>
+        <Link
+          className="mt-4 w-full flex items-center justify-center gap-2 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold shadow hover:from-purple-600 hover:to-pink-600 transition"
+          href={`/pages/user/${place._id}`}
+        >
+          <span>{t('scan-qrcode')}</span>
+          <BsQrCode color="white" size={20} />
+        </Link>
       </div>
     </div>
   )

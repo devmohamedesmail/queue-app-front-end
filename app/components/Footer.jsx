@@ -21,7 +21,7 @@ export default function Footer() {
     return (
         <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10 pb-40">
             <aside>
-                <img src={`${api.baseUrl}${settings?.logo}`} alt={settings?.nameEn} className='w-18' />
+                <img src={`${settings?.logo}`} alt={settings?.nameEn} className='w-18' />
                 {i18n.language === "ar" ? <p> {settings?.descriptionAr}</p> : <p>{settings?.descriptionEn}</p>}
             </aside>
            
