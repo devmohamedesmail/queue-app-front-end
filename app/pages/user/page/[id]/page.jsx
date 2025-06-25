@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from '../../../../context/DataContext'
 import { useTranslation } from 'react-i18next'
 import parse from 'html-react-parser'
-import Loader from '../../../../components/loader'
+import Loader from '../../../../components/loader.jsx'
 
 
 function Page({ params }) {

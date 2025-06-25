@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import { api } from '../../../../config/api';
 import axios from 'axios';
-import Custom_service_item from '../../../../custom/custom_service_item';
-import Service_skeleton from '../../../../components/skeletons/service_skeleton';
+import Custom_service_item from '../../../../custom/custom_service_item.jsx';
+import Service_skeleton from '../../../../components/skeletons/service_skeleton.jsx';
 import { useTranslation } from 'react-i18next';
 export default function Place_Srvices({ params }) {
     const { id } = params;
