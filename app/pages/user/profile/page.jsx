@@ -1,7 +1,4 @@
 'use client'
-import Footer from '../../../components/footer'
-import Mobile_Dock from '../../../components/mobile_dock'
-import Navbar from '../../../components/navbar'
 import { AuthContext } from '../../../context/AuthContext'
 import React, { useContext } from 'react'
 

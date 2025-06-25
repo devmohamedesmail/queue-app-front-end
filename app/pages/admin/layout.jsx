@@ -1,6 +1,6 @@
 'use client'
 import Admin_header from '../../components/admin_header'
-import Admin_siderbar from '../../components/admin_siderbar'
+import Admin_siderbar from '../../components/admin_siderbar.jsx'
 import React, { useState } from 'react'
 
 export default function Layout({ children }) {

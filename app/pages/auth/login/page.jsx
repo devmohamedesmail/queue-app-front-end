@@ -1,7 +1,4 @@
 'use client'
-import Footer from '../../../components/footer'
-import Mobile_Dock from '../../../components/mobile_dock'
-import Navbar from '../../../components/navbar'
 import { AuthContext } from '../../../context/AuthContext'
 import Custom_button from '../../../custom/Custom_button'
 import Custom_input from '../../../custom/Custom_input'
@@ -121,7 +118,7 @@ export default function page() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className='container m-auto px-5'>
 
 
@@ -211,8 +208,8 @@ export default function page() {
 
 
       </div>
-      <Footer />
-      <Mobile_Dock />
+      {/* <Footer /> */}
+      {/* <Mobile_Dock /> */}
     </div>
   )
 }
