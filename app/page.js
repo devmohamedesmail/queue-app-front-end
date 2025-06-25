@@ -1,13 +1,13 @@
 'use client';
-import Navbar from "./components/Navbar";
-import Map from "./components/Map";
+import Navbar from "./components/navbar";
+import Map from "./components/map";
 import Place_section from "./sections/Place_section";
-import Mobile_Dock from "./components/Mobile_Dock";
-import Footer from "./components/Footer";
-import Banner from "./components/Banner";
+import Mobile_Dock from "./components/mobile_dock";
+import Footer from "./components/footer";
+import Banner from "./components/banner";
 import Link from "next/link";
 import { useTranslation } from 'react-i18next';
-import Loader from "./components/Loader";
+import Loader from "./components/loader";
 import { useContext } from "react";
 import { PlaceContext } from "./context/PlaceContext";
 import Advantages from "./sections/Advantages";
@@ -26,7 +26,7 @@ export default function Home() {
      <Navbar />
      <Map />
      <Advantages />
-     <Banner />
+
      <Place_section />
      <Mobile_Dock />
      <Footer />

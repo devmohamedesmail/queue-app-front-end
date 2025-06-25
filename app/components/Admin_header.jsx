@@ -7,7 +7,7 @@ import { CiUser } from "react-icons/ci";
 import { AiOutlineUser } from "react-icons/ai";
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
-import Language_switcher from './Language_switcher'
+import Language_switcher from './language_switcher'
 function Admin_header({ isSidebarOpen, setIsSidebarOpen }) {
 
 

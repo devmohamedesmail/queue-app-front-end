@@ -1,11 +1,9 @@
-
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { PlaceProvider } from "./context/PlaceContext";
 import { AuthProvider } from "./context/AuthContext";
 import { ToastContainer } from "react-toastify";
-import ClientWrapper from "./components/ClientWrapper";
+import ClientWrapper from "./components/clientwrapper";
 import { DataProvider } from "./context/DataContext";
 
 

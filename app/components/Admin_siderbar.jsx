@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { PlaceContext } from '../context/PlaceContext'
-import { api } from '@/app/config/api';
+import { api } from '../config/api';
 import Custom_sidebar_item from '../custom/Custom_sidebar_item';
 import { useTranslation } from 'react-i18next';
 import { CiHome } from "react-icons/ci";
@@ -26,7 +26,7 @@ function Admin_siderbar({ isSidebarOpen, setIsSidebarOpen }) {
 
        
         <div className='flex justify-center items-center'>
-            <img src={`${settings?.logo}`} className='w-18' alt="" />
+            <img src={`${settings?.logo}`} className='w-18 h-18 rounded-full' alt="" />
         </div>
 
         <ul>

@@ -1,6 +1,6 @@
 'use client'
-import Language_switcher from '@/app/components/Language_switcher';
-import { api } from '@/app/config/api'
+import Language_switcher from '../../../components/language_switcher';
+import { api } from '../../../config/api'
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next';

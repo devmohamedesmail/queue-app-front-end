@@ -1,7 +1,6 @@
 'use client'
-import Footer from '@/app/components/Footer'
-import Mobile_Dock from '@/app/components/Mobile_Dock'
-import Navbar from '@/app/components/Navbar'
+
+
 import { api } from '@/app/config/api'
 import { AuthContext } from '@/app/context/AuthContext'
 import { PlaceContext } from '@/app/context/PlaceContext'
@@ -114,39 +113,65 @@ useEffect(() => {
 
 
   return (
-    <div>
-      <Navbar />
-
-
-      <div className='container m-auto px-5 flex flex-col justify-center items-center gap-5 py-10'>
-        
-        
-        <div className='card w-full bg-base-100 shadow-xl p-3 border border-gray-200'>
-          <div className='flex flex-col justify-between items-center'>
-            <h1 className='text-primary font-bold text-3xl  mb-4'>{t('waiting-list')}</h1>
-            <h1>{waiting_list && waiting_list.length > 0 ? waiting_list.length : t('no-waiting')}</h1>
+    <section className="w-full min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="max-w-md w-full mx-auto">
+        <div className="bg-white shadow-2xl rounded-2xl p-8 border border-gray-100">
+          {/* Header */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-extrabold mb-4" style={{ color: 'var(--color-main)' }}>
+              {t('waiting-list')}
+            </h1>
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style={{ backgroundColor: 'var(--color-second)' }}>
+              <span className="text-2xl font-bold" style={{ color: 'var(--color-main)' }}>
+                {waiting_list && waiting_list.length > 0 ? waiting_list.length : '0'}
+              </span>
+            </div>
+            <p className="text-gray-600 text-sm">
+              {waiting_list && waiting_list.length > 0 ? t('people-ahead', 'people ahead of you') : t('no-waiting')}
+            </p>
           </div>
-          <div className='flex justify-between items-center my-10'>
-            <p>{t('estimated-time')}</p>
-            {totalEstimatedTime > 0 ? <p>{totalEstimatedTime} {t('minutes')}</p> : <p>{t('no-waiting-time')}</p>}
-            {/* <p>{totalEstimatedTime} {t('minutes')}</p> */}
-          </div>
-          <div className='flex justify-center items-center my-10'>
 
-            {loading ? <Custom_spinner /> : <button onClick={() => handle_book_now()} className='btn btn-neutral w-full'>{t('book-queue')}</button>}
+          {/* Estimated Time */}
+          <div className="bg-gray-50 rounded-xl p-6 mb-8">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-700 font-medium">{t('estimated-time')}</span>
+              <div className="text-right">
+                {totalEstimatedTime > 0 ? (
+                  <div>
+                    <span className="text-2xl font-bold" style={{ color: 'var(--color-main)' }}>
+                      {totalEstimatedTime}
+                    </span>
+                    <span className="text-gray-600 ml-1">{t('minutes')}</span>
+                  </div>
+                ) : (
+                  <span className="text-gray-600">{t('no-waiting-time')}</span>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Book Button */}
+          <div className="text-center">
+            {loading ? (
+              <div className="flex justify-center py-4">
+                <Custom_spinner />
+              </div>
+            ) : (
+              <button 
+                onClick={() => handle_book_now()} 
+                className="w-full py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                style={{ 
+                  backgroundColor: 'var(--color-main)', 
+                  color: 'white',
+                  border: 'none'
+                }}
+              >
+                {t('book-queue')}
+              </button>
+            )}
           </div>
         </div>
-
-
-
-
       </div>
-
-
-
-      <Footer />
-      <Mobile_Dock />
-
-    </div>
+    </section>
   )
 }

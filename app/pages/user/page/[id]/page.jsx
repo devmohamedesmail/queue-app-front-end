@@ -1,13 +1,13 @@
 'use client'
 
 import React, { useContext, useEffect, useState } from 'react'
-import { DataContext } from '@/app/context/DataContext'
+import { DataContext } from '../../../../context/DataContext'
 import { useTranslation } from 'react-i18next'
 import parse from 'html-react-parser'
-import Navbar from '@/app/components/Navbar'
-import Footer from '@/app/components/Footer'
-import Mobile_Dock from '@/app/components/Mobile_Dock'
-import Loader from '@/app/components/Loader'
+import Navbar from '../../../../components/navbar'
+import Footer from '../../../../components/footer'
+import Mobile_Dock from '../../../../components/mobile_dock'
+import Loader from '../../../../components/loader'
 
 
 function Page({ params }) {

@@ -1,5 +1,5 @@
 'use client'
-import { PlaceContext } from '@/app/context/PlaceContext'
+import { PlaceContext } from '../../context/PlaceContext'
 import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
 import { MdPlace } from "react-icons/md";
