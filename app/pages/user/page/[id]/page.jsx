@@ -4,9 +4,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from '../../../../context/DataContext'
 import { useTranslation } from 'react-i18next'
 import parse from 'html-react-parser'
-import Navbar from '../../../../components/navbar'
-import Footer from '../../../../components/footer'
-import Mobile_Dock from '../../../../components/mobile_dock'
 import Loader from '../../../../components/loader'
 
 
@@ -36,7 +33,7 @@ function Page({ params }) {
 
 
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             {page && pages ? (
                 <div className="container m-auto px-5 my-10">
                     <h5 className='bg-gray-100 text-center font-bold text-2xl py-10 mb-3'> {i18n.language === "ar" ? page.title_ar : page.title_en}</h5>
@@ -50,8 +47,8 @@ function Page({ params }) {
             )}
 
 
-            <Footer />
-            <Mobile_Dock />
+            {/* <Footer /> */}
+            {/* <Mobile_Dock /> */}
         </div>
 
 
